@@ -30,6 +30,19 @@ public class PlayerInput : MonoBehaviour
 
         bool fire = Input.GetButtonDown("Fire1");
         bool unlock = Input.GetButtonDown("Cancel");
+        bool reload = Input.GetButtonDown("Reload");
+
+        if (Cursor.lockState != CursorLockMode.Locked)
+        {
+            if (fire)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                return;
+            }
+        }
 
         cameraRotation = Mathf.Clamp(cameraRotation - lookY, -89, 89);
         playerCamera.transform.localRotation = Quaternion.AngleAxis(cameraRotation, Vector3.right);
@@ -39,10 +52,11 @@ public class PlayerInput : MonoBehaviour
         if (fire)
         {
             gun.Fire();
-            if (Cursor.lockState == CursorLockMode.None)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+        }
+
+        if (reload)
+        {
+            gun.Reload();
         }
 
         if (unlock)

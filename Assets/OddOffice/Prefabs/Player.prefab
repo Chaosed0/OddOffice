@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d628db000e8c2647bb889f7762780a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 6000
+  moveForce: 5000
 --- !u!114 &114250722545580350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +210,33 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114259764003380916, guid: 25c79ef4db2d3be41b44b3fe486a77a0,
     type: 2}
   muzzlePoint: {fileID: 4292670109079010}
+  maxAmmo: 30
+  reloadTime: 3
+  OnReloadStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnReloadEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnFireSuccess:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnFireFail:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnAmmoChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!124 &124969802503450104
 Behaviour:
   m_ObjectHideFlags: 1
