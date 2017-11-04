@@ -23,6 +23,8 @@ public class ProjectorAim : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
+        hurtbox.enabled = false;
+
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player");
@@ -54,11 +56,11 @@ public class ProjectorAim : MonoBehaviour {
         }
         yield return new WaitForSeconds(beamCharge);
 
-        hurtbox.dealingDamage = true;
+        hurtbox.enabled = true;
         yield return new WaitForSeconds(beamDuration);
 
         laser.End();
-        hurtbox.dealingDamage = false;
+        hurtbox.enabled = false;
         if (targeter != null)
         {
             targeter.enabled = true;

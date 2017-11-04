@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Hurtbox : MonoBehaviour
 {
     public float damagePerSecond = 5.0f;
     public float damageOnHit = 0.0f;
-    public bool dealingDamage = false;
     Health playerHealth = null;
+
+    public UnityEvent OnHurtSomething = new UnityEvent();
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             playerHealth = other.GetComponent<Health>();
-            playerHealth.DealDamage(damageOnHit);
+            if (enabled)
+            {
+                playerHealth.DealDamage(damageOnHit);
+            }
         }
     }
 
@@ -27,7 +32,7 @@ public class Hurtbox : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth != null && dealingDamage)
+        if (playerHealth != null)
         {
             playerHealth.DealDamage(damagePerSecond * Time.deltaTime);
         }

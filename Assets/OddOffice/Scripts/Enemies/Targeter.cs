@@ -12,7 +12,7 @@ public class Targeter : MonoBehaviour {
 
 	void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         thisAgent = GetComponent<NavMeshAgent>();
     }
 	
