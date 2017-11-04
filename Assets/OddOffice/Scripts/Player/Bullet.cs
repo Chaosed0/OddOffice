@@ -19,12 +19,15 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Health health = other.gameObject.GetComponent<Health>();
+        Health health = other.gameObject.GetComponentInParent<Health>();
         if (health != null)
         {
             health.DealDamage(10);
+            explosion.transform.SetParent(null);
+            explosion.transform.position = other.contacts[0].point + (transform.position - other.transform.position).normalized * .25f;
             explosion.Play();
-            Destroy(this.gameObject);
+            Destroy(explosion, 2);
+            Destroy(gameObject);
         }
         else
         {
