@@ -5,6 +5,7 @@
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_Top("Top", Float) = 1
+		_Bottom("Bottom", Float) = 1
 		_ObjHeight("ObjHeight", Float) = 1
 		_MidPoint("MidPoint", Float) = 1
 	}
@@ -29,6 +30,7 @@
 		half _Metallic;
 		fixed4 _Color;
 		float _Top;
+		float _Bottom;
 		float _ObjHeight;
 		float _ObjWidth;
 		float _MidPoint;
@@ -41,14 +43,19 @@
 		UNITY_INSTANCING_CBUFFER_END
 
 		void vert(inout appdata_full v){
-			float height = v.vertex.y - (_MidPoint - _ObjHeight / 2);
-			float addend = sin(_Time * 30) * height * height * .15 * _ObjWidth;
-			float heightAddend = sin((_Time * 30 + 3.14) * 2) * .2;
+			float timeScale = 35;
+			float heightDividend = 1.5;
 
-			float temp = max(0, _Top - (_Top - v.vertex.y) / _ObjHeight);
+			float height = v.vertex.y - (_MidPoint - _ObjHeight / heightDividend);
+			float num = height / _ObjHeight;
+
+			float addend = sin(_Time * timeScale) * num * num * (_ObjWidth + _ObjHeight) / 3;
+			float heightAddend = sin((_Time * timeScale + 3.14) * 2) * .4;
+
+			float temp = max(0, (_Top - (_Top - v.vertex.y)) / _ObjHeight);
 			heightAddend *= temp;
 
-			if (v.vertex.y >= (_MidPoint - _ObjHeight / 2)) {
+			if (v.vertex.y >= (_MidPoint - _ObjHeight / heightDividend)) {
 				v.vertex.z += addend;
 			}
 			v.vertex.y += heightAddend;
