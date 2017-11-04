@@ -23,6 +23,8 @@ public class MugShot : MonoBehaviour {
         glob.GetComponent<Rigidbody>().velocity = CalculateLaunchVelocity();
         glob.GetComponent<Expires>().pool = globPool;
 
+        EventBus.PublishEvent(new TestEvent());
+
         yield return new WaitForSeconds(2);
         StartCoroutine(Lob());
     }

@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 5
   target: {fileID: 1746229918}
-  globPrefab: {fileID: 1964568585208432, guid: fb08d3c2fab6b5842addba4cc8620dff, type: 2}
+  globPool: {fileID: 0}
 --- !u!1 &1746229918
 GameObject:
   m_ObjectHideFlags: 0
