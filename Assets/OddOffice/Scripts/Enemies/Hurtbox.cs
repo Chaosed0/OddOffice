@@ -4,6 +4,7 @@ using UnityEngine;
 public class Hurtbox : MonoBehaviour
 {
     public float damagePerSecond = 5.0f;
+    public float damageOnHit = 0.0f;
     public bool dealingDamage = false;
     Health playerHealth = null;
 
@@ -12,6 +13,7 @@ public class Hurtbox : MonoBehaviour
         if (other.tag == "Player")
         {
             playerHealth = other.GetComponent<Health>();
+            playerHealth.DealDamage(damageOnHit);
         }
     }
 

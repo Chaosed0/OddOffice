@@ -13,6 +13,11 @@ public class MugShot : MonoBehaviour {
     void Awake()
     {
         globPool = GameObject.Find("CoffeeProjectilePool").GetComponent<StackPool>();
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+
         StartCoroutine(Lob());
     }
 

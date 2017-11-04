@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114119728469498196}
   - component: {fileID: 54727259177733948}
   - component: {fileID: 65161048553722586}
+  - component: {fileID: 114299979670592586}
   m_Layer: 0
   m_Name: CoffeeGlob
   m_TagString: Untagged
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876604721976380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0218902, y: 3.8749633, z: 15.23}
+  m_LocalPosition: {x: -2.5262678, y: 0.60766804, z: -3.8496253}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4926184659514376}
@@ -153,6 +154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b848b38739dd78449b4f44d8054c65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114299979670592586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876604721976380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da1ebe693db9f749a80278db0124f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSecond: 0
+  damageOnHit: 5
+  dealingDamage: 0
 --- !u!114 &114387554258887656
 MonoBehaviour:
   m_ObjectHideFlags: 1

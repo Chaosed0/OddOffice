@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerSecond: 5
+  damageOnHit: 0
   dealingDamage: 0
 --- !u!114 &114893177084487314
 MonoBehaviour:
