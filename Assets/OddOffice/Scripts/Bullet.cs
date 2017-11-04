@@ -16,6 +16,15 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        rb.useGravity = true;
+        Health health = other.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.DealDamage(10);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            rb.useGravity = true;
+        }
     }
 }
