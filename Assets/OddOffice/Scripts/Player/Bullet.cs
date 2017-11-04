@@ -6,10 +6,13 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10;
     Rigidbody rb;
+    ParticleSystem explosion;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        explosion = GetComponentInChildren<ParticleSystem>();
+
         Vector3 velocity = transform.rotation * Vector3.forward * speed;
         rb.AddForce(velocity, ForceMode.VelocityChange);
     }
@@ -20,6 +23,7 @@ public class Bullet : MonoBehaviour
         if (health != null)
         {
             health.DealDamage(10);
+            explosion.Play();
             Destroy(this.gameObject);
         }
         else
