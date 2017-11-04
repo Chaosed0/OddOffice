@@ -5,6 +5,7 @@ public class MugShot : MonoBehaviour {
     public float height;
     public GameObject target;
     public StackPool globPool;
+    public float maxMissAmount;
 
     private float adjustedHeight;
     private float trajectoryDuration;
@@ -31,11 +32,13 @@ public class MugShot : MonoBehaviour {
 
     Vector3 CalculateLaunchVelocity ()
     {
-        Vector3 transformedPoint = transform.InverseTransformPoint(target.transform.position);
+        Vector3 targetPosition = target.transform.position + Random.insideUnitSphere * Random.Range(0, maxMissAmount);
+
+        Vector3 transformedPoint = transform.InverseTransformPoint(targetPosition);
         adjustedHeight = Mathf.Max(0, transformedPoint.y) + height;
 
         float displacementUp = transformedPoint.y;
-        Vector3 toTarget = target.transform.position - transform.position;
+        Vector3 toTarget = targetPosition - transform.position;
         toTarget.y = 0;
         float displacementForward = toTarget.magnitude;
 

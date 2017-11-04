@@ -18,17 +18,18 @@ public class ProjectorLaser : MonoBehaviour {
 
     public LayerMask targetLayerMask;
 
-    private float chargeUpAccumulatedSeconds;
-    private float laserScaleAccumulatedSeconds;
+    private bool firing = true;
 
-    void Start ()
+    public void Fire()
     {
+        firing = true;
         StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        chargeUpAccumulatedSeconds = 0;
+        float chargeUpAccumulatedSeconds = 0;
+        float laserScaleAccumulatedSeconds = 0;
         chargeEnergy.Play();
 
         chargeBall.transform.localScale = new Vector3();
@@ -56,7 +57,7 @@ public class ProjectorLaser : MonoBehaviour {
         laserBeam.Play();
         laserCore.Play();
 
-        while (laserBeam.transform.localScale.x > 1)
+        while (laserBeam.transform.localScale.x > 1 && firing)
         {
             laserScaleAccumulatedSeconds += Time.deltaTime;
             float scale = Mathf.Max(0, laserInitialScale - (laserScaleAccumulatedSeconds / chargeUpAccumulatedSeconds) * (laserInitialScale - 1));
@@ -74,5 +75,15 @@ public class ProjectorLaser : MonoBehaviour {
 
             yield return null;
         }
+    }
+
+    public void End()
+    {
+        chargeBall.Stop();
+        chargeCore.Stop();
+        laserBeam.Stop();
+        laserCore.Stop();
+
+        firing = false;
     }
 }
