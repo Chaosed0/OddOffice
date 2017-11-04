@@ -38,13 +38,13 @@ public class Charger : MonoBehaviour
     {
         yield return new WaitForSeconds(checkPathTime);
         Vector3 towardsPlayer = player.transform.position - transform.position;
+        towardsPlayer.y = 0.0f;
 
         RaycastHit hitInfo;
-        bool hit = Physics.BoxCast(transform.position, new Vector3(1.0f, 0.5f, 1.0f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer));
+        bool hit = Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer));
 
         if (hit && hitInfo.collider.gameObject.layer == 9 && !isCharging)
         {
-            towardsPlayer.y = 0.0f;
             chargeDirection = towardsPlayer.normalized;
             StartCharging();
         }
@@ -56,7 +56,6 @@ public class Charger : MonoBehaviour
 
     void StartCharging()
     {
-        Debug.Log("Start");
         isCharging = true;
         hurtbox.enabled = true;
         targeter.enabled = false;
@@ -89,7 +88,6 @@ public class Charger : MonoBehaviour
 
     void StopCharging()
     {
-        Debug.Log("Stop");
         isCharging = false;
         hurtbox.enabled = false;
         rb.velocity = Vector3.zero;
@@ -98,9 +96,7 @@ public class Charger : MonoBehaviour
 
     IEnumerator RecoveryCoroutine()
     {
-        Debug.Log("Recover");
         yield return new WaitForSeconds(chargeRecoveryTime);
-        Debug.Log("Recovered");
         targeter.enabled = true;
         agent.enabled = true;
         rb.isKinematic = true;
