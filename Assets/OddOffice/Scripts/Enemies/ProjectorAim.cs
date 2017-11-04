@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class ProjectorAim : MonoBehaviour {
     public GameObject target;
@@ -11,12 +12,16 @@ public class ProjectorAim : MonoBehaviour {
     public Hurtbox hurtbox;
 
     private ProjectorLaser laser;
-    private Movement movement;
+    private Targeter targeter;
+    private NavMeshAgent agent;
+    private Rigidbody rb;
 
     void Awake ()
     {
         laser = GetComponent<ProjectorLaser>();
-        movement = GetComponent<Movement>();
+        targeter = GetComponent<Targeter>();
+        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
 
         if (target == null)
         {
@@ -42,9 +47,10 @@ public class ProjectorAim : MonoBehaviour {
         }
 
         laser.Fire();
-        if (movement != null)
+        if (targeter != null)
         {
-            movement.setCanMove(false);
+            targeter.enabled = false;
+            agent.enabled = false;
         }
         yield return new WaitForSeconds(beamCharge);
 
@@ -53,9 +59,10 @@ public class ProjectorAim : MonoBehaviour {
 
         laser.End();
         hurtbox.dealingDamage = false;
-        if (movement != null)
+        if (targeter != null)
         {
-            movement.setCanMove(true);
+            targeter.enabled = true;
+            agent.enabled = true;
         }
         StartCoroutine(Aim());
     }
