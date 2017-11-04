@@ -4,20 +4,25 @@ using UnityEngine;
 public class MugShot : MonoBehaviour {
     public float height;
     public GameObject target;
-    public GameObject globPrefab;
+    public StackPool globPool;
 
     private float adjustedHeight;
     private float trajectoryDuration;
 
     void Awake()
     {
+        globPool = GameObject.Find("CoffeeProjectilePool").GetComponent<StackPool>();
         StartCoroutine(Lob());
     }
 
     IEnumerator Lob()
     {
-        GameObject glob = Instantiate(globPrefab, transform.position, Quaternion.identity);
+        GameObject glob = globPool.Pop();
+
+        glob.transform.position = transform.position;
         glob.GetComponent<Rigidbody>().velocity = CalculateLaunchVelocity();
+        glob.GetComponent<Expires>().pool = globPool;
+
         yield return new WaitForSeconds(2);
         StartCoroutine(Lob());
     }

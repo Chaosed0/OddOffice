@@ -5,6 +5,7 @@ using UnityEngine;
 public class Expires : MonoBehaviour
 {
     public float expiryTime;
+    public StackPool pool;
 
     void Start()
     {
@@ -14,6 +15,13 @@ public class Expires : MonoBehaviour
     IEnumerator ExpireCoroutine()
     {
         yield return new WaitForSeconds(expiryTime);
-        Destroy(this.gameObject);
+        if (pool)
+        {
+            pool.Push(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

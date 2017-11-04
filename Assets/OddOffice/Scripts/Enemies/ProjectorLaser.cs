@@ -14,6 +14,8 @@ public class ProjectorLaser : MonoBehaviour {
     public float laserShrinkDuration;
     public float laserInitialScale;
 
+    public float damagePerSecond;
+
     public LayerMask targetLayerMask;
 
     private float chargeUpAccumulatedSeconds;

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23085274265786872}
   - component: {fileID: 54120978702772580}
   - component: {fileID: 65304439639546578}
+  - component: {fileID: 114485382959730408}
   m_Layer: 0
   m_Name: CoffeeGlob
   m_TagString: Untagged
@@ -109,3 +110,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114485382959730408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964568585208432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6759c69c0bea9cd40b402506ba16357f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expiryTime: 4
+  pool: {fileID: 0}
