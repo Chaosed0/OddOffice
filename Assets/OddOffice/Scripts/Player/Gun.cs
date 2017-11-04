@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     void Awake()
     {
-        Reload();
+        _ammo = maxAmmo;
     }
 
     public void Reload()

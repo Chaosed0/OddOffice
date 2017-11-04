@@ -31,6 +31,7 @@ public class PlayerInput : MonoBehaviour
         bool fire = Input.GetButtonDown("Fire1");
         bool unlock = Input.GetButtonDown("Cancel");
         bool reload = Input.GetButtonDown("Reload");
+        bool jump = Input.GetButtonDown("Jump");
 
         if (Cursor.lockState != CursorLockMode.Locked)
         {
@@ -47,7 +48,13 @@ public class PlayerInput : MonoBehaviour
         cameraRotation = Mathf.Clamp(cameraRotation - lookY, -89, 89);
         playerCamera.transform.localRotation = Quaternion.AngleAxis(cameraRotation, Vector3.right);
 
-        movement.Move(new Vector2(strafe, forward), lookX);
+        movement.Move(new Vector2(strafe, forward));
+        movement.AddToYaw(lookX);
+
+        if (jump)
+        {
+            movement.Jump();
+        }
 
         if (fire)
         {

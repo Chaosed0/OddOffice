@@ -5,8 +5,11 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 50;
+    public float maxHealth = 50.0f;
     private float health;
+
+    public UnityEvent OnDied = new UnityEvent();
+    public UnityEvent OnHealthChanged = new UnityEvent();
 
     void Start()
     {
@@ -16,9 +19,16 @@ public class Health : MonoBehaviour
     public void DealDamage(float damage)
     {
         health -= damage;
+        OnHealthChanged.Invoke();
+
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            OnDied.Invoke();
         }
+    }
+
+    public float GetHealth()
+    {
+        return health;
     }
 }
