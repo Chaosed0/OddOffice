@@ -18,6 +18,7 @@ public class Charger : MonoBehaviour
     private bool isCharging = false;
     private Vector3 chargeDirection = Vector3.zero;
     private float chargeDurationTimer = 0.0f;
+    private LayerMask chargeLayerMask;
 
 	void Awake()
     {
@@ -26,59 +27,69 @@ public class Charger : MonoBehaviour
         targeter = GetComponent<Targeter>();
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        chargeLayerMask = ~LayerMask.NameToLayer("ChargeIgnore");
 
         hurtbox.enabled = false;
+
+        StartCoroutine(CheckCanChargeCoroutine());
     }
 
     IEnumerator CheckCanChargeCoroutine()
     {
         yield return new WaitForSeconds(checkPathTime);
-        bool canCharge = Physics.BoxCast(transform.position, new Vector3(1.0f, 1.0f, 1.0f), player.transform.position - transform.position);
-        chargeDirection = (player.transform.position - transform.position).normalized;
+        Vector3 towardsPlayer = player.transform.position - transform.position;
 
-        if (canCharge && !isCharging)
+        RaycastHit hitInfo;
+        bool hit = Physics.BoxCast(transform.position, new Vector3(1.0f, 0.5f, 1.0f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer));
+
+        if (hit && hitInfo.collider.gameObject.layer == 9 && !isCharging)
         {
+            towardsPlayer.y = 0.0f;
+            chargeDirection = towardsPlayer.normalized;
             StartCharging();
+        }
+        else
+        {
+            StartCoroutine(CheckCanChargeCoroutine());
         }
     }
 
     void StartCharging()
     {
+        Debug.Log("Start");
         isCharging = true;
         hurtbox.enabled = true;
         targeter.enabled = false;
         agent.enabled = false;
-        StartCoroutine(ChargingCoroutine());
+        rb.isKinematic = false;
+        chargeDurationTimer = 0.0f;
     }
 
-    IEnumerator ChargingCoroutine()
+    void FixedUpdate()
     {
-        while (true)
+        if (isCharging)
         {
-            if (!isCharging)
-            {
-                break;
-            }
-
             rb.velocity = chargeDirection * chargeSpeed;
-            yield return new WaitForEndOfFrame();
 
-            chargeDurationTimer += Time.deltaTime;
+            chargeDurationTimer += Time.fixedDeltaTime;
             if (chargeDurationTimer > maxChargeDuration)
             {
                 StopCharging();
-                break;
             }
         }
     }
 
     void OnCollisionEnter(Collision other)
     {
-        StopCharging();
+        if (isCharging)
+        {
+            StopCharging();
+        }
     }
 
     void StopCharging()
     {
+        Debug.Log("Stop");
         isCharging = false;
         hurtbox.enabled = false;
         rb.velocity = Vector3.zero;
@@ -87,8 +98,12 @@ public class Charger : MonoBehaviour
 
     IEnumerator RecoveryCoroutine()
     {
+        Debug.Log("Recover");
         yield return new WaitForSeconds(chargeRecoveryTime);
+        Debug.Log("Recovered");
         targeter.enabled = true;
         agent.enabled = true;
+        rb.isKinematic = true;
+        StartCoroutine(CheckCanChargeCoroutine());
     }
 }

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4219181799838470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4979497116721814}
   - component: {fileID: 65367137820141338}
   - component: {fileID: 114775513125565884}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BeamCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4317536441328578}
   - component: {fileID: 198221653127257354}
   - component: {fileID: 199267115293402300}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaserParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114260238926371596}
   - component: {fileID: 114260911525230454}
   - component: {fileID: 195929020803856794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectorEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4198262540683678}
   - component: {fileID: 198723017943995786}
   - component: {fileID: 199519937873075114}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaserParticleCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4598435813832302}
   - component: {fileID: 198160307897224098}
   - component: {fileID: 199927723235025532}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChargeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4705783759320548}
   - component: {fileID: 198416763850424558}
   - component: {fileID: 199035480368157764}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChargeEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4627224380858516}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Charge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4706102983492178}
   - component: {fileID: 198426062000473760}
   - component: {fileID: 199772360119784564}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChargeBallCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247229746025244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5980008, y: 0.6076684, z: -1.7440712}
+  m_LocalPosition: {x: -10.589, y: 0.5082576, z: -8.047752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4219181799838470}
@@ -446,7 +446,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 5
   damageOnHit: 0
-  dealingDamage: 0
+  OnHurtSomething:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114893177084487314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,7 +494,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
 --- !u!198 &198160307897224098
 ParticleSystem:

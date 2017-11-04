@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4926184659514376}
   - component: {fileID: 198230027026005458}
   - component: {fileID: 199342383674417142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Droplets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 54727259177733948}
   - component: {fileID: 65161048553722586}
   - component: {fileID: 114299979670592586}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CoffeeGlob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 0
   damageOnHit: 5
-  dealingDamage: 0
+  OnHurtSomething:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114387554258887656
 MonoBehaviour:
   m_ObjectHideFlags: 1

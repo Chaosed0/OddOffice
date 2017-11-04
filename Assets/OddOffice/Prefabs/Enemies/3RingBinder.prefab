@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 195650274625707434}
   - component: {fileID: 114424513225804060}
   - component: {fileID: 54303428257457050}
-  m_Layer: 0
+  - component: {fileID: 114124397421065860}
+  m_Layer: 11
   m_Name: 3RingBinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4270241832604686}
   - component: {fileID: 114009490081470682}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +57,7 @@ GameObject:
   - component: {fileID: 33027120753444362}
   - component: {fileID: 65878959612083684}
   - component: {fileID: 23210617424622872}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 33754203187457686}
   - component: {fileID: 136867494041079264}
   - component: {fileID: 23599848747866910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +93,7 @@ GameObject:
   - component: {fileID: 33193375161162086}
   - component: {fileID: 65684563885601720}
   - component: {fileID: 23215051521820148}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,6 +338,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 0.5
   rate: 3
+--- !u!114 &114124397421065860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044235500562390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114424513225804060
 MonoBehaviour:
   m_ObjectHideFlags: 1
