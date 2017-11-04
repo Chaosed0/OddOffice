@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float moveForce;
+    public float maxSpeed = 10;
 
     Vector2 movement;
     float yaw;
@@ -18,8 +19,19 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
     {
+        // Rotation
         transform.rotation = Quaternion.AngleAxis(yaw, Vector3.up);
-        rb.AddForce(transform.forward * movement.y * moveForce +  transform.right * movement.x * moveForce);
+
+        // Speed
+        Vector3 desiredPlanarVelocity = transform.forward * movement.y * maxSpeed + transform.right * movement.x * maxSpeed;
+
+        Vector3 planarVelocity = rb.velocity;
+        planarVelocity.y = 0.0f;
+        planarVelocity = Vector3.ClampMagnitude(planarVelocity, maxSpeed);
+
+        Vector3 relativeForce = (desiredPlanarVelocity - planarVelocity) * moveForce;
+
+        rb.AddForce(relativeForce);
 	}
 
     public void Move(Vector2 movement, float yaw)
