@@ -17,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     {
         movement = GetComponent<Movement>();
         gun = GetComponent<Gun>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 	void Update ()
@@ -25,7 +27,9 @@ public class PlayerInput : MonoBehaviour
         float strafe = Input.GetAxis("Horizontal");
         float lookX = Input.GetAxis("Mouse X");
         float lookY = Input.GetAxis("Mouse Y");
+
         bool fire = Input.GetButtonDown("Fire1");
+        bool unlock = Input.GetButtonDown("Cancel");
 
         cameraRotation = Mathf.Clamp(cameraRotation - lookY, -89, 89);
         playerCamera.transform.localRotation = Quaternion.AngleAxis(cameraRotation, Vector3.right);
@@ -35,6 +39,15 @@ public class PlayerInput : MonoBehaviour
         if (fire)
         {
             gun.Fire();
+            if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+
+        if (unlock)
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
 	}
 }
