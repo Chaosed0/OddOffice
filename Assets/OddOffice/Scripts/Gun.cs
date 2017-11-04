@@ -9,6 +9,6 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(bulletPrefab, muzzlePoint.transform.position, this.transform.rotation, null);
+        Instantiate(bulletPrefab, muzzlePoint.transform.position, muzzlePoint.transform.rotation, null);
     }
 }
