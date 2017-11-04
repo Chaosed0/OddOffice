@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4270241832604686}
   - component: {fileID: 114009490081470682}
+  - component: {fileID: 65245836887708006}
   m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
@@ -59,6 +60,23 @@ GameObject:
   - component: {fileID: 23210617424622872}
   m_Layer: 11
   m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1756348447271566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4263745385943660}
+  - component: {fileID: 114136254853917360}
+  - component: {fileID: 65762367351801362}
+  m_Layer: 11
+  m_Name: hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +118,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4263745385943660
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756348447271566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.456, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4378228046301160}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4270241832604686
 Transform:
   m_ObjectHideFlags: 1
@@ -107,14 +138,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563790315578172}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1.456, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4905014174093022}
   - {fileID: 4971286345330804}
   - {fileID: 4544198040120540}
   m_Father: {fileID: 4378228046301160}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4378228046301160
 Transform:
@@ -123,9 +154,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1044235500562390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -2}
+  m_LocalPosition: {x: -9.345875, y: 0.9786786, z: -3.926344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4263745385943660}
   - {fileID: 4270241832604686}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -301,6 +333,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65245836887708006
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563790315578172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.25, z: 0.7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65684563885601720
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -309,6 +353,18 @@ BoxCollider:
   m_GameObject: {fileID: 1987161998509576}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65762367351801362
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756348447271566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -349,6 +405,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114136254853917360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1756348447271566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da1ebe693db9f749a80278db0124f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSecond: 0.5
+  damageOnHit: 1
+  OnHurtSomething:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114424513225804060
 MonoBehaviour:
   m_ObjectHideFlags: 1

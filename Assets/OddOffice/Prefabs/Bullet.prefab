@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33989949235095458}
   - component: {fileID: 23792181897932436}
   - component: {fileID: 65850158979941122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Staple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727790365676736}
   m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.169, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4994665061615306}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112019020992980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5386305, y: 0.114888206, z: -8.155947}
+  m_LocalPosition: {x: -10.968912, y: 0.114888065, z: -6.8603935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4897781856031160}
@@ -138,8 +138,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00013261253, y: 0.0019577814, z: 0.0018297482}
-  m_Center: {x: 0, y: 0, z: 0.000064016844}
+  m_Size: {x: 0.0009150722, y: 0.0019577814, z: 0.0018297482}
+  m_Center: {x: 0.00000037372112, y: -3.9614685e-21, z: 0.00006401688}
 --- !u!114 &114259764003380916
 MonoBehaviour:
   m_ObjectHideFlags: 1
