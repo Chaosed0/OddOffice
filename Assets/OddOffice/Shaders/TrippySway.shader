@@ -50,7 +50,7 @@
 			float num = height / _ObjHeight;
 
 			float addend = sin(_Time * timeScale) * num * num * (_ObjWidth + _ObjHeight) / 3;
-			float heightAddend = sin((_Time * timeScale + 3.14) * 2) * .4;
+			float heightAddend = sin((_Time * timeScale + 3.14) * 2) * .64;
 
 			float temp = max(0, (_Top - (_Top - v.vertex.y)) / _ObjHeight);
 			heightAddend *= temp;
