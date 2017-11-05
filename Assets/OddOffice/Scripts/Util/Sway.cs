@@ -38,3 +38,6 @@ public class Sway : MonoBehaviour {
 // set modifier to 1 to activate, 0 to deactivate.
 public struct ActivateTrip
 {}
+
+public struct DeactivateTrip
+{}
