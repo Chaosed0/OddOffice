@@ -7,17 +7,17 @@ public class AmmoText : MonoBehaviour
 {
     public Gun gun;
     
-    private Text text;
+    public Image image;
 
-    void Start()
+    void Start ()
     {
         if (gun == null)
         {
             gun = FindObjectOfType<Gun>();
         }
 
-        text = GetComponent<Text>();
-
-        gun.OnAmmoChanged.AddListener(() => text.text = gun.GetAmmo() + "/" + gun.maxAmmo);
+        gun.OnAmmoChanged.AddListener(() => {
+            image.fillAmount = (float)gun.GetAmmo() / gun.maxAmmo;
+        });
     }
 }
