@@ -282,6 +282,42 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.626
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.39021742
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9207228
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695891944722548, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45.936
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191298124981178, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.11200009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191298124981178, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.91199994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c31efaee3a4d37c47ad03bd99aa628d2, type: 2}
   m_IsPrefabParent: 0
@@ -344,6 +380,11 @@ Prefab:
     - target: {fileID: 114119728469498196, guid: fb08d3c2fab6b5842addba4cc8620dff,
         type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23176443371239874, guid: fb08d3c2fab6b5842addba4cc8620dff,
+        type: 2}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -572,7 +613,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 3e5b00e14cd343b42b1cb09c8c2ac47d, type: 2}
+      objectReference: {fileID: 2100000, guid: a26698d7d7162b74bbb3eaa42cecedcd, type: 2}
     - target: {fileID: 137857324919240832, guid: ab110f9cb938e7a45b0079d7bc483bc3,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -844,6 +885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementAmount: 0.06
-  secondsPerCycle: 1.2
+  secondsPerCycle: 2
   degPerSecond: 180
   modifier: 0.05
