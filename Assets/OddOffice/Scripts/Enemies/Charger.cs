@@ -11,6 +11,9 @@ public class Charger : MonoBehaviour
     public float chargeRecoveryTime = 2.0f;
     public Hurtbox hurtbox;
 
+    public AudioSource audioSource;
+    public AudioClip chargingClip;
+
     private GameObject player;
     private Targeter targeter;
     private NavMeshAgent agent;
@@ -59,6 +62,8 @@ public class Charger : MonoBehaviour
     void StartCharging()
     {
         anim.SetTrigger("ChargePrepare");
+        audioSource.clip = chargingClip;
+        audioSource.Play();
     }
 
     public void DoCharge()
@@ -99,6 +104,7 @@ public class Charger : MonoBehaviour
         isCharging = false;
         hurtbox.enabled = false;
         rb.velocity = Vector3.zero;
+        audioSource.Stop();
         PrepareRecovery();
     }
 
