@@ -6,7 +6,7 @@ using UnityEngine.PostProcessing;
 [RequireComponent(typeof(PostProcessingBehaviour))]
 public class DamageEffect : MonoBehaviour
 {
-    PostProcessingProfile profile;
+    private PostProcessingProfile profile;
 
     public Health playerHealth;
     public float maxIntensity;
@@ -17,20 +17,10 @@ public class DamageEffect : MonoBehaviour
 
     void Awake ()
     {
-        PostProcessingBehaviour behaviour = GetComponent<PostProcessingBehaviour>();
+        profile = GetComponent<PostProcessingBehaviour>().profile;
 
-        if (behaviour.profile == null)
-        {
-            enabled = false;
-            return;
-        }
-
-        profile = Instantiate(behaviour.profile);
-        behaviour.profile = profile;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         playerHealth.OnHealthChanged.AddListener(() => DamagePlayer());
-
-        vignette = profile.vignette.settings;
     }
 
     void DamagePlayer()
@@ -41,6 +31,8 @@ public class DamageEffect : MonoBehaviour
     void Update()
     {
         if (vignetteDirection == -1 && vignette.intensity <= 0) return;
+
+        vignette = profile.vignette.settings;
 
         vignette.intensity = Mathf.Clamp(vignette.intensity + vignetteDirection * vignetteSpeed * Time.deltaTime, 0, maxIntensity);
         if (vignette.intensity >= maxIntensity)

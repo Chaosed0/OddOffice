@@ -8,6 +8,7 @@
 		_Bottom("Bottom", Float) = 1
 		_ObjHeight("ObjHeight", Float) = 1
 		_MidPoint("MidPoint", Float) = 1
+		_RandomOffset("RandomOffset", Float) = 1
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -35,6 +36,7 @@
 		float _ObjWidth;
 		float _MidPoint;
 		float _Modifier;
+		float _RandomOffset;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -50,8 +52,8 @@
 			float height = v.vertex.y - (_MidPoint - _ObjHeight / heightDividend);
 			float num = height / _ObjHeight;
 
-			float addend = _Modifier * sin(_Time * timeScale) * num * num * (_ObjWidth + _ObjHeight) / 3;
-			float heightAddend = _Modifier * sin((_Time * timeScale + 3.14) * 2) * .64;
+			float addend = _Modifier * sin(_Time * timeScale + _RandomOffset) * num * num * (_ObjWidth + _ObjHeight) / 3;
+			float heightAddend = _Modifier * sin((_Time * timeScale + _RandomOffset + 3.14) * 2) * .64;
 
 			float temp = max(0, (_Top - (_Top - v.vertex.y)) / _ObjHeight);
 			heightAddend *= temp;
@@ -70,6 +72,7 @@
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
+			o.Emission = c.rgb * .75;
 		}
 		ENDCG
 	}

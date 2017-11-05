@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4024177327477968}
   - component: {fileID: 33089316426477650}
   - component: {fileID: 23017488090352978}
-  - component: {fileID: 65720065564184798}
-  - component: {fileID: 114203528277997892}
   m_Layer: 0
   m_Name: Lightbulb_001
   m_TagString: Untagged
@@ -129,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1639386542295772}
   m_LocalRotation: {x: 0, y: 0.38840026, z: 0, w: 0.9214908}
-  m_LocalPosition: {x: 0.339, y: 1.06, z: -1.193}
+  m_LocalPosition: {x: 0.22, y: 1.06, z: -1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4387086871802630}
@@ -237,7 +235,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3593a498d91c9484889c16215b7efc43, type: 2}
+  - {fileID: 2100000, guid: f6f4bc57c2278e34db8cd9fea7da7f47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
