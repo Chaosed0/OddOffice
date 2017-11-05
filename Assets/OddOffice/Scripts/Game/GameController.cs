@@ -42,11 +42,9 @@ public class GameController : MonoBehaviour
     public AudioSource musicSource;
 
     public AudioClip introTalk;
+    public AudioClip introTalk2;
     public AudioClip preOutroTalk;
     public AudioClip outroTalk;
-
-    public CameraEffects cameraEffects;
-    public Sway sway;
 
     private Movement playerMovement;
     private Gun playerGun;
@@ -83,29 +81,30 @@ public class GameController : MonoBehaviour
     
     IEnumerator IntroCoroutine()
     {
+        daylight.SetActive(false);
+
         // This is where the boss talks for some time
         PlayVoiceLine(introTalk);
         yield return new WaitForSeconds(TimeForIntro);
+        PlayVoiceLine(introTalk2);
 
         // Fade out, make everything dark
-        fadeout.OnFadedOut.AddListener(() => {
-            daylight.SetActive(false);
-
+        //fadeout.OnFadedOut.AddListener(() => {
             // Open cafeteria doors
             foreach (Door door in doorsToOpenAfterIntro)
             {
                 door.Open();
             }
 
-            fadeout.OnFadedOut.RemoveAllListeners();
-        });
-        fadeout.OnFadedIn.AddListener(() => {
+            //fadeout.OnFadedOut.RemoveAllListeners();
+        //});
+        //fadeout.OnFadedIn.AddListener(() => {
             // Allow the player to walk when the fade-in finishes
             SetupForWalking();
-            fadeout.OnFadedIn.RemoveAllListeners();
-            PlayVoiceLine(phases[0].prePhaseTalk);
-        });
-        fadeout.DoFade();
+            //fadeout.OnFadedIn.RemoveAllListeners();
+            PlayVoiceLine(phases[0].phaseBeginTalk);
+        //});
+        //fadeout.DoFade();
 
         AllowEntryToPhase(0);
     }
@@ -195,7 +194,7 @@ public class GameController : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
 
-        PlayVoiceLine(phases[index].phaseBeginTalk);
+        //PlayVoiceLine(phases[index].phaseBeginTalk);
     }
 
     // Things that should happen in the phase go here

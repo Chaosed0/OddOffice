@@ -9286,7 +9286,6 @@ GameObject:
   - component: {fileID: 972661999}
   - component: {fileID: 972662000}
   - component: {fileID: 972662001}
-  - component: {fileID: 972662002}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -9318,9 +9317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d272b4d9e97e7243986e1eb65e889f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeForIntro: 0
+  TimeForIntro: 10
   phases:
-  - phaseTime: 5
+  - phaseTime: 45
     colliderToStartPhase: {fileID: 585609477}
     spawners:
     - {fileID: 620642243}
@@ -9337,12 +9336,12 @@ MonoBehaviour:
     - {fileID: 1633426553}
     thingsToDeactivate:
     - {fileID: 917736393}
-    prePhaseTalk: {fileID: 8300000, guid: 89a91212e09785b4dba4b604983d60aa, type: 3}
-    prePhaseYawn: {fileID: 8300000, guid: a60f7713a334b924ea452d59aed19c07, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: b1e94b4838462614ea17c666e7d32cb7, type: 3}
+    prePhaseTalk: {fileID: 8300000, guid: c76775f54d2775f4e80c30104f9678d1, type: 3}
+    prePhaseYawn: {fileID: 8300000, guid: b633977b03bf9b2478e54657d3b623a7, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: 11c408d964751e5429f019754e726f2d, type: 3}
     music: {fileID: 8300000, guid: 9b980985353a6ed4b91304b2840dc7ec, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 5
+  - phaseTime: 60
     colliderToStartPhase: {fileID: 2028439951}
     spawners:
     - {fileID: 781406467}
@@ -9361,9 +9360,9 @@ MonoBehaviour:
     - {fileID: 1377301528}
     thingsToDeactivate:
     - {fileID: 506970728}
-    prePhaseTalk: {fileID: 8300000, guid: 221faf355e493134898ad8e99450453b, type: 3}
-    prePhaseYawn: {fileID: 8300000, guid: 2c3c49cb03ca3084b9575175d1c36db9, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: 64521e5d23617cd468b4fee4f8489eac, type: 3}
+    prePhaseTalk: {fileID: 8300000, guid: dfe9e5af2d4a5c34f94530756a3a1f5b, type: 3}
+    prePhaseYawn: {fileID: 8300000, guid: 5c3ed0adefaacb44e961e5a0ff9ac0f7, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: b9325f60bf60a5749bc82862863054ed, type: 3}
     music: {fileID: 8300000, guid: cdffd595f216d1d479ce2d34c34d132e, type: 3}
     focusTarget: {fileID: 0}
   - phaseTime: 90
@@ -9385,9 +9384,9 @@ MonoBehaviour:
     thingsToActivate:
     - {fileID: 1685065760}
     thingsToDeactivate: []
-    prePhaseTalk: {fileID: 8300000, guid: 81c6a8e9c18dacb4cbb2c6416f5d076b, type: 3}
-    prePhaseYawn: {fileID: 8300000, guid: 2afd185b468545c40816c86f7ec0411a, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: 1d3ba6f257fd9404f893922a8946922d, type: 3}
+    prePhaseTalk: {fileID: 8300000, guid: 9802663a250ad954dbd1484a188d6496, type: 3}
+    prePhaseYawn: {fileID: 8300000, guid: 6aa4904fc007eb543861c250ecca2a92, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: 1fcb07d8fd258dc4f955c30da2b2888e, type: 3}
     music: {fileID: 8300000, guid: a9664df245764aa4a84970e1e4970b0d, type: 3}
     focusTarget: {fileID: 0}
   TimeForOutroLead: 5
@@ -9406,11 +9405,9 @@ MonoBehaviour:
   voiceClipSource: {fileID: 1606081331}
   ringSource: {fileID: 1570924691}
   musicSource: {fileID: 314747555}
-  introTalk: {fileID: 8300000, guid: e85057b846996ef4bb4e6f69c2a02aff, type: 3}
-  preOutroTalk: {fileID: 8300000, guid: 9556bd861ec71bc4980032e6976bc549, type: 3}
-  outroTalk: {fileID: 8300000, guid: f1400a7dc4afba9498fe89ceeabd143f, type: 3}
-  cameraEffects: {fileID: 972662002}
-  sway: {fileID: 0}
+  introTalk: {fileID: 8300000, guid: c76775f54d2775f4e80c30104f9678d1, type: 3}
+  preOutroTalk: {fileID: 8300000, guid: b4b0ccb1ef7dd954b8586db1a28a88ff, type: 3}
+  outroTalk: {fileID: 8300000, guid: c5e8e109e0e49bb469af4046de5d882f, type: 3}
   monsterDoors:
   - {fileID: 602565821}
   - {fileID: 1490036231}
@@ -9442,17 +9439,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   tempFadeout: {fileID: 1933852394}
---- !u!114 &972662002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 972661998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162935936e1ce05468712761f0b2b839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &973876999
 Prefab:
   m_ObjectHideFlags: 0
@@ -14796,7 +14782,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 71f788892a47e624eb797c56aa3c06a1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 07e0d08a29dd7144a888d74963556a3b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
