@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4402484406622772}
   - component: {fileID: 33380855591550108}
   - component: {fileID: 23215958268458986}
+  - component: {fileID: 65545363663075140}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -51,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4808291364639560}
+  - component: {fileID: 54515997781369314}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -91,9 +93,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1683772720807616}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.983986, y: -3.5860763, z: 5.7606015}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4302471496992208}
   m_Father: {fileID: 0}
@@ -108,12 +110,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 36cbb274f83b11948970a17b69fabf8f, type: 2}
+  - {fileID: 2100000, guid: 8473783a6106e4f479bcd864fa99710c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +125,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -140,3 +140,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540103431225932}
   m_Mesh: {fileID: 4300004, guid: 5e953cacfd5183d49b314426a7c9a4ec, type: 3}
+--- !u!54 &54515997781369314
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683772720807616}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65545363663075140
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540103431225932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.632818, y: 2.037993, z: 0.6328183}
+  m_Center: {x: 0, y: 0.29174125, z: -0.0000076293945}
