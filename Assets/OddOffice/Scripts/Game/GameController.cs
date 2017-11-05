@@ -54,6 +54,8 @@ public class GameController : MonoBehaviour
     public Door[] monsterDoors;
     public Door receptionDoor;
 
+    public LightsManager lightsManager;
+
     void Start()
     {
         daylight.SetActive(true);
@@ -172,6 +174,8 @@ public class GameController : MonoBehaviour
             activateMe.SetActive(false);
         }
 
+        lightsManager.SetTrippyLighting();
+
         // PHASE SPECIFIC SETUP GOES HERE by index
     }
 
@@ -260,6 +264,8 @@ public class GameController : MonoBehaviour
         {
             door.Open();
         }
+
+        lightsManager.SetNormalLighting();
     }
 
     void StartOutroLead()

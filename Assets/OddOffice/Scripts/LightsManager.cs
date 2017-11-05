@@ -27,7 +27,7 @@ public class LightsManager : MonoBehaviour {
         // SetTrippyLighting();
     }
 
-    
+    /*
     // For testing purposes only
     private void Update()
     {
@@ -44,7 +44,7 @@ public class LightsManager : MonoBehaviour {
         }
         previousTestValue = testValue;
     }
-    
+    */
 
     [SubscribeGlobal]
     public void HandleTrip(ActivateTrip e)
@@ -58,7 +58,7 @@ public class LightsManager : MonoBehaviour {
         SetNormalLighting();
     }
 
-    private void SetNormalLighting()
+    public void SetNormalLighting()
     {
         profile.bloom.enabled = false;
 
@@ -70,7 +70,7 @@ public class LightsManager : MonoBehaviour {
         RenderSettings.ambientIntensity = 1.75f;
     }
 
-    private void SetTrippyLighting()
+    public void SetTrippyLighting()
     {
         RenderSettings.ambientIntensity = 1.00f;
 

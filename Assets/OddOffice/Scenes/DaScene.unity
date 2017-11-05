@@ -8758,6 +8758,7 @@ MonoBehaviour:
   - {fileID: 1661440943}
   - {fileID: 969156945}
   receptionDoor: {fileID: 969156945}
+  lightsManager: {fileID: 112221504}
 --- !u!114 &972662001
 MonoBehaviour:
   m_ObjectHideFlags: 0
