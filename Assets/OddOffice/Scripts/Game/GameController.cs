@@ -9,6 +9,10 @@ public struct Phase
     public ColliderEventer colliderToStartPhase;
     public Spawner[] spawners;
     public Door[] doorToOpenAtEnd;
+    public AudioClip prePhaseTalk;
+    public AudioClip prePhaseYawn;
+    public AudioClip phaseBeginTalk;
+    public AudioClip music;
     public GameObject focusTarget;
 }
 
@@ -27,6 +31,17 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public ArmAnimator arms;
     public CanvasGroup HUD;
+
+    public ColliderEventer playerDeskCollider;
+
+    public AudioSource voiceClipSource;
+    public AudioSource ringSource;
+    public AudioSource musicSource;
+
+    public AudioClip introTalk;
+    public AudioClip preOutroTalk;
+    public AudioClip outroTalk;
+
     private Movement playerMovement;
     private Gun playerGun;
 
@@ -60,6 +75,7 @@ public class GameController : MonoBehaviour
     IEnumerator IntroCoroutine()
     {
         // This is where the boss talks for some time
+        PlayVoiceLine(introTalk);
         yield return new WaitForSeconds(TimeForIntro);
 
         // Fade out, make everything dark
@@ -78,10 +94,9 @@ public class GameController : MonoBehaviour
             // Allow the player to walk when the fade-in finishes
             SetupForWalking();
             fadeout.OnFadedIn.RemoveAllListeners();
+            PlayVoiceLine(phases[0].prePhaseTalk);
         });
         fadeout.DoFade();
-
-        // TODO: Aaah, I need some coffee
 
         AllowEntryToPhase(0);
     }
@@ -102,6 +117,8 @@ public class GameController : MonoBehaviour
         // Do a blink
         blink.DoBlink();
 
+        PlayVoiceLine(phases[index].prePhaseYawn);
+
         blink.OnBlinkClose.AddListener(() => {
             // While the screen is black, setup the scene
             SetupForPhase(index);
@@ -109,8 +126,8 @@ public class GameController : MonoBehaviour
         });
 
         blink.OnBlinkOpen.AddListener(() => {
-            // Once the blink finishes, play whatever cutscene for the scene
-            CinematicForPhase(index);
+            // Once the blink finishes, do stuff
+            PhaseBegin(index);
             blink.OnBlinkOpen.RemoveAllListeners();
         });
 
@@ -145,10 +162,15 @@ public class GameController : MonoBehaviour
     }
 
     // Called right after eyes open
-    void CinematicForPhase(int index)
+    void PhaseBegin(int index)
     {
         // Cinematic goes here, but for now we just enable player to shoot enemies
         SetupForShooting();
+        musicSource.clip = phases[index].music;
+        musicSource.loop = true;
+        musicSource.Play();
+
+        PlayVoiceLine(phases[index].phaseBeginTalk);
     }
 
     // Things that should happen in the phase go here
@@ -157,14 +179,18 @@ public class GameController : MonoBehaviour
         // Wait for the phase to finish
         yield return new WaitForSeconds(phases[index].phaseTime);
 
+        musicSource.Stop();
+
         if (index+1 < phases.Length)
         {
+            ringSource.Play();
+
             // If there's a next phase, finish this one and allow the player to walk around again
             blink.DoBlink();
             blink.OnBlinkClose.AddListener(() => {
                 CleanupPhase(index);
                 SetupForWalking();
-                AllowEntryToPhase(index+1);
+                SetupBetweenPhase(index+1);
                 blink.OnBlinkClose.RemoveAllListeners();
             });
         }
@@ -178,6 +204,17 @@ public class GameController : MonoBehaviour
                 blink.OnBlinkClose.RemoveAllListeners();
             });
         }
+    }
+
+    // This gets called when a phase ends, eyes are closed
+    void SetupBetweenPhase(int index)
+    {
+        playerDeskCollider.OnPlayerEntered.AddListener(() => {
+            AllowEntryToPhase(index);
+            PlayVoiceLine(phases[index].prePhaseTalk);
+            ringSource.Stop();
+            playerDeskCollider.OnPlayerEntered.RemoveAllListeners();
+        });
     }
 
     // Happens after the phase ends, while eyes are closed
@@ -200,8 +237,6 @@ public class GameController : MonoBehaviour
             enemy.GetComponent<Health>().DealDamage(9999999999);
         }
 
-        // TODO: Play per-phase voice lines/phone ringing
-
         foreach (Door door in phases[index].doorToOpenAtEnd)
         {
             door.Open();
@@ -210,6 +245,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator StartOutroLead()
     {
+        PlayVoiceLine(preOutroTalk);
         yield return new WaitForSeconds(TimeForOutroLead);
 
         fadeout.OnFadedOut.AddListener(() => {
@@ -233,6 +269,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator PlayOutro()
     {
+        PlayVoiceLine(outroTalk);
         yield return new WaitForSeconds(TimeForOutro);
 
         Debug.Log("IT'S OVER");
@@ -260,5 +297,12 @@ public class GameController : MonoBehaviour
         playerGun.enabled = false;
         StartCoroutine(arms.HideArms(0.5f));
         HUD.alpha = 0.0f;
+    }
+
+    void PlayVoiceLine(AudioClip voiceLine)
+    {
+        voiceClipSource.clip = voiceLine;
+        voiceClipSource.loop = false;
+        voiceClipSource.Play();
     }
 }
