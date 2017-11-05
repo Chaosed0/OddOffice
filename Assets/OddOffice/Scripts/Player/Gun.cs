@@ -39,15 +39,18 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        if (_ammo > 0)
+        if (!_reloading)
         {
-            Instantiate(bulletPrefab, muzzlePoint.transform.position, muzzlePoint.transform.rotation, null);
-            SetAmmo(_ammo -1);
-            OnFireSuccess.Invoke();
-        }
-        else if (!_reloading)
-        {
-            OnFireFail.Invoke();
+            if (_ammo > 0)
+            {
+                Instantiate(bulletPrefab, muzzlePoint.transform.position, muzzlePoint.transform.rotation, null);
+                SetAmmo(_ammo -1);
+                OnFireSuccess.Invoke();
+            }
+            else
+            {
+                OnFireFail.Invoke();
+            }
         }
     }
 

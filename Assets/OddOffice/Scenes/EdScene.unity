@@ -1271,6 +1271,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4929296704668624, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
   m_IsPrefabParent: 0
@@ -1495,10 +1499,10 @@ RectTransform:
   m_Father: {fileID: 811358321}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313.4, y: -157.62}
-  m_SizeDelta: {x: 160, y: 25.61}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 98, y: 27.987}
+  m_SizeDelta: {x: 160, y: 25.609985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869323098
 MonoBehaviour:
