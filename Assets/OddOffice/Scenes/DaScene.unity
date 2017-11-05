@@ -1184,6 +1184,68 @@ Transform:
   m_PrefabParentObject: {fileID: 4101609957638092, guid: 4c605d3379cb597438943f80d7678bbc,
     type: 2}
   m_PrefabInternal: {fileID: 102216044}
+--- !u!1 &103341881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1165038579832602, guid: bfa249d26938f804b8674e0742d6c1ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 103341882}
+  - component: {fileID: 103341884}
+  - component: {fileID: 103341883}
+  m_Layer: 0
+  m_Name: ExitEventer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103341882
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4120401918030254, guid: bfa249d26938f804b8674e0742d6c1ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103341881}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 68.17, y: 0, z: 73}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 202707839}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &103341883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114546740191221394, guid: bfa249d26938f804b8674e0742d6c1ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103341881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226f6c46dd7c79a4cadbf8c06e613b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerEntered:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!65 &103341884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 65905904758558134, guid: bfa249d26938f804b8674e0742d6c1ce,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103341881}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.607391, y: 14.771103, z: 16.903788}
+  m_Center: {x: -29.717007, y: 6.885552, z: 9.823592}
 --- !u!1001 &104585661
 Prefab:
   m_ObjectHideFlags: 0
@@ -7933,7 +7995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeForIntro: 5
   phases:
-  - phaseTime: 20
+  - phaseTime: 5
     colliderToStartPhase: {fileID: 585609477}
     spawners:
     - {fileID: 215878650}
@@ -7946,7 +8008,7 @@ MonoBehaviour:
     phaseBeginTalk: {fileID: 8300000, guid: b1e94b4838462614ea17c666e7d32cb7, type: 3}
     music: {fileID: 8300000, guid: dae662acebbf2cf4ebec81262e2dfe7c, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 20
+  - phaseTime: 5
     colliderToStartPhase: {fileID: 2028439951}
     spawners:
     - {fileID: 215878650}
@@ -7958,7 +8020,7 @@ MonoBehaviour:
     phaseBeginTalk: {fileID: 8300000, guid: 64521e5d23617cd468b4fee4f8489eac, type: 3}
     music: {fileID: 8300000, guid: 7361937a22c33044ebed3ddde3f525aa, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 20
+  - phaseTime: 5
     colliderToStartPhase: {fileID: 1535009}
     spawners:
     - {fileID: 215878650}
@@ -7981,6 +8043,7 @@ MonoBehaviour:
   arms: {fileID: 677446666}
   HUD: {fileID: 327399599}
   playerDeskCollider: {fileID: 1540278121}
+  exitCollider: {fileID: 103341883}
   voiceClipSource: {fileID: 1606081331}
   ringSource: {fileID: 1570924691}
   musicSource: {fileID: 96712480}
@@ -7994,6 +8057,7 @@ MonoBehaviour:
   - {fileID: 83597088}
   - {fileID: 1661440943}
   - {fileID: 969156945}
+  receptionDoor: {fileID: 969156945}
 --- !u!114 &972662001
 MonoBehaviour:
   m_ObjectHideFlags: 0

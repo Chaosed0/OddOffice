@@ -55,4 +55,10 @@ public class Door : MonoBehaviour
             colliderContainer.MoveRotation(colliderCloseRotation);
         }
     }
+
+    public void Unmonster()
+    {
+        blackPlane.SetActive(false);
+        isMonsterDoor = false;
+    }
 }

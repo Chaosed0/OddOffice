@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
     public CanvasGroup HUD;
 
     public ColliderEventer playerDeskCollider;
+    public ColliderEventer exitCollider;
 
     public AudioSource voiceClipSource;
     public AudioSource ringSource;
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
     private Quaternion initialPlayerRotation;
 
     public Door[] monsterDoors;
+    public Door receptionDoor;
 
     void Start()
     {
@@ -200,8 +202,13 @@ public class GameController : MonoBehaviour
             blink.OnBlinkClose.AddListener(() => {
                 CleanupPhase(index);
                 SetupForWalking();
-                StartCoroutine(StartOutroLead());
+                StartOutroLead();
                 blink.OnBlinkClose.RemoveAllListeners();
+            });
+
+            blink.OnBlinkOpen.AddListener(() => {
+                PlayVoiceLine(preOutroTalk);
+                blink.OnBlinkOpen.RemoveAllListeners();
             });
         }
     }
@@ -243,11 +250,19 @@ public class GameController : MonoBehaviour
         }
     }
 
-    IEnumerator StartOutroLead()
+    void StartOutroLead()
     {
-        PlayVoiceLine(preOutroTalk);
-        yield return new WaitForSeconds(TimeForOutroLead);
+        receptionDoor.Unmonster();
+        receptionDoor.Open();
 
+        exitCollider.OnPlayerEntered.AddListener(() => {
+            StartOutro();
+            exitCollider.OnPlayerEntered.RemoveAllListeners();
+        });
+    }
+
+    void StartOutro()
+    {
         fadeout.OnFadedOut.AddListener(() => {
             PrepOutro();
             fadeout.OnFadedOut.RemoveAllListeners();
