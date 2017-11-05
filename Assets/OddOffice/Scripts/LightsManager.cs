@@ -17,13 +17,34 @@ public class LightsManager : MonoBehaviour {
     public GameObject mainCamera;
     private PostProcessingProfile profile;
 
-    // Use this for initialization
+    // public float testDuration;
+    // private float previousTestValue;
+
     void Start () {
         profile = mainCamera.GetComponent<PostProcessingBehaviour>().profile;
         ceilingLightsMaterial = roof.GetComponent<Renderer>().materials[1];
-        // SetNormalLighting();
-        SetTrippyLighting();
+        SetNormalLighting();
+        // SetTrippyLighting();
     }
+
+    /*
+    // For testing purposes only
+    private void Update()
+    {
+        float testValue = Mathf.Sin(Mathf.PI * Time.time / testDuration);
+        if (testValue > 0f && previousTestValue <= 0f)
+        {
+            Debug.Log("Setting Normal Lighting");
+            SetNormalLighting();
+        }
+        else if (testValue <= 0f && previousTestValue > 0f)
+        {
+            Debug.Log("Setting Trippy Lighting");
+            SetTrippyLighting();
+        }
+        previousTestValue = testValue;
+    }
+    */
 
     [SubscribeGlobal]
     public void HandleTrip(ActivateTrip e)
