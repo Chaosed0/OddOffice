@@ -319,7 +319,7 @@ public class GameController : MonoBehaviour
     void SetupForWalking()
     {
         playerMovement.setCanMove(true);
-        playerGun.enabled = true;
+        playerGun.enabled = false;
         StartCoroutine(arms.HideArms(0.5f));
         HUD.alpha = 0.0f;
     }

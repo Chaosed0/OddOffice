@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -18,10 +19,13 @@ public class Gun : MonoBehaviour
 
     private int _ammo = 0;
     private bool _reloading = false;
+    private Image crosshair;
 
     void Awake()
     {
         _ammo = maxAmmo;
+        crosshair = GameObject.Find("Crosshair").GetComponent<Image>();
+        crosshair.enabled = false;
     }
 
     public void Reload()
@@ -79,5 +83,15 @@ public class Gun : MonoBehaviour
     public int GetAmmo()
     {
         return _ammo;
+    }
+
+    void OnEnable()
+    {
+        crosshair.enabled = true;
+    }
+
+    void OnDisable()
+    {
+        crosshair.enabled = false;
     }
 }

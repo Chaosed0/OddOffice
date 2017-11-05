@@ -72,7 +72,7 @@
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
-			o.Emission = c.rgb * .7 * _Modifier;
+			o.Emission = c.rgb * .2 * _Modifier;
 		}
 		ENDCG
 	}
