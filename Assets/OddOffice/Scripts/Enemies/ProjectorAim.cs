@@ -9,7 +9,7 @@ public class ProjectorAim : MonoBehaviour {
     public float turnSpeed;
     public float beamCharge;
     public float beamDuration;
-    public Hurtbox hurtbox;
+    public LaserHurtbox hurtbox;
 
     private ProjectorLaser laser;
     private Targeter targeter;

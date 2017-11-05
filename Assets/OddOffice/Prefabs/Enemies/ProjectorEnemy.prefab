@@ -28,14 +28,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1095575973145134
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4979497116721814}
   - component: {fileID: 65367137820141338}
-  - component: {fileID: 114775513125565884}
+  - component: {fileID: 114400989682012830}
   m_Layer: 11
   m_Name: BeamCollider
   m_TagString: Untagged
@@ -80,6 +80,21 @@ GameObject:
   - component: {fileID: 195929020803856794}
   m_Layer: 11
   m_Name: ProjectorEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1385718445515980
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4925457468677460}
+  m_Layer: 11
+  m_Name: BeamStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,6 +208,8 @@ Transform:
   m_Children:
   - {fileID: 4317536441328578}
   - {fileID: 4198262540683678}
+  - {fileID: 4979497116721814}
+  - {fileID: 4925457468677460}
   m_Father: {fileID: 4225228752462332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -203,12 +220,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247229746025244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.589, y: 0.5082576, z: -8.047752}
+  m_LocalPosition: {x: -13.7, y: 0.6082576, z: -3.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4219181799838470}
   - {fileID: 4627224380858516}
-  - {fileID: 4979497116721814}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,17 +296,30 @@ Transform:
   m_Father: {fileID: 4627224380858516}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4925457468677460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1385718445515980}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.508, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4219181799838470}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4979497116721814
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1095575973145134}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.392}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.6610005, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4225228752462332}
+  m_Father: {fileID: 4219181799838470}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23791820581843604
@@ -369,7 +398,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 13.147149}
+  m_Size: {x: 0.5, y: 0.5, z: 13}
   m_Center: {x: 0, y: 0, z: 4.443148}
 --- !u!114 &114034822047751418
 MonoBehaviour:
@@ -387,7 +416,7 @@ MonoBehaviour:
   turnSpeed: 90
   beamCharge: 1
   beamDuration: 3
-  hurtbox: {fileID: 114775513125565884}
+  hurtbox: {fileID: 114400989682012830}
 --- !u!114 &114260238926371596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,7 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d210146dcc9124a489039acb37374116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
   OnDied:
     m_PersistentCalls:
       m_Calls: []
@@ -422,6 +451,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRotationSpeed: 8
+--- !u!114 &114400989682012830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095575973145134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d0ec03abc28a5448aa011a7c8b98c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSecond: 5
+  beamStartLoc: {fileID: 1385718445515980}
+  OnStartHurting:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnStopHurting:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114413154057884384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,24 +485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114775513125565884
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095575973145134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3da1ebe693db9f749a80278db0124f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerSecond: 5
-  damageOnHit: 0
-  OnHurtSomething:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!114 &114893177084487314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3823,7 +3857,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 589541777
+  randomSeed: 1834831537
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13615,7 +13649,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2112895305
+  randomSeed: 1049650622
   InitialModule:
     serializedVersion: 3
     enabled: 1
