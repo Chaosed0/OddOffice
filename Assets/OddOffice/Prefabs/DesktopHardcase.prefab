@@ -36,6 +36,8 @@ GameObject:
   - component: {fileID: 4741817814414002}
   - component: {fileID: 33281859411676190}
   - component: {fileID: 23737084448659586}
+  - component: {fileID: 114268684021389896}
+  - component: {fileID: 65249362259805524}
   m_Layer: 0
   m_Name: Desktop_Hardcase
   m_TagString: Untagged
@@ -65,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164565783717850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.15}
+  m_LocalPosition: {x: 0, y: 0, z: -0.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818997798384600}
@@ -108,12 +110,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 87f4ba1dbfcfa814aa62301a6881a8ce, type: 2}
+  - {fileID: 2100000, guid: cf26b6483019c794480e4cb5a07c9b7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,7 +125,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -140,3 +140,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434628898615016}
   m_Mesh: {fileID: 4300026, guid: 5e953cacfd5183d49b314426a7c9a4ec, type: 3}
+--- !u!65 &65249362259805524
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434628898615016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.236576, y: 5.274558, z: 2.262768}
+  m_Center: {x: -0.0000038146973, y: 0.018983603, z: 0}
+--- !u!114 &114268684021389896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434628898615016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d1d2ddfa2239445b010af54aeec8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

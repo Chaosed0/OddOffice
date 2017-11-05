@@ -81,6 +81,8 @@ GameObject:
   - component: {fileID: 4511081231377884}
   - component: {fileID: 33950951367478994}
   - component: {fileID: 23860877615759182}
+  - component: {fileID: 65481672500460440}
+  - component: {fileID: 114748134820416340}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -98,6 +100,8 @@ GameObject:
   - component: {fileID: 4619347516561086}
   - component: {fileID: 33167826718876126}
   - component: {fileID: 23864441616078504}
+  - component: {fileID: 65993003882339730}
+  - component: {fileID: 114244733747817686}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -161,6 +165,8 @@ GameObject:
   - component: {fileID: 4424532588426554}
   - component: {fileID: 33431554690046508}
   - component: {fileID: 23270159350948472}
+  - component: {fileID: 65111825617240286}
+  - component: {fileID: 114862980295175976}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -381,7 +387,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3476c8c5ad5585445a3b6a4221a18736, type: 2}
+  - {fileID: 2100000, guid: 3593a498d91c9484889c16215b7efc43, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -413,7 +419,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 87f4ba1dbfcfa814aa62301a6881a8ce, type: 2}
+  - {fileID: 2100000, guid: 6efefe374d7cdaf4a881a432368254e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -445,7 +451,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 87f4ba1dbfcfa814aa62301a6881a8ce, type: 2}
+  - {fileID: 2100000, guid: 6efefe374d7cdaf4a881a432368254e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -477,7 +483,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 87f4ba1dbfcfa814aa62301a6881a8ce, type: 2}
+  - {fileID: 2100000, guid: 6efefe374d7cdaf4a881a432368254e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
