@@ -58,4 +58,9 @@ public class LaserHurtbox : MonoBehaviour
     {
         impactFlame.Stop();
     }
+
+    void OnDestroy ()
+    {
+        StopFlame();
+    }
 }
