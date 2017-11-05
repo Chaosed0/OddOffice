@@ -8,7 +8,7 @@ public struct Phase
     public float phaseTime;
     public ColliderEventer colliderToStartPhase;
     public Spawner[] spawners;
-    public GameObject doorToOpenAtEnd;
+    public Door[] doorToOpenAtEnd;
     public GameObject focusTarget;
 }
 
@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     public Phase[] phases;
     public float TimeForOutroLead = 5.0f;
     public float TimeForOutro = 5.0f;
+
+    public Door[] doorsToOpenAfterIntro;
 
     public GameObject daylight;
     public Blink blink;
@@ -31,7 +33,7 @@ public class GameController : MonoBehaviour
     private Vector3 initialPlayerPosition;
     private Quaternion initialPlayerRotation;
 
-    public GameObject[] monsterDoors;
+    public Door[] monsterDoors;
 
     void Start()
     {
@@ -63,6 +65,13 @@ public class GameController : MonoBehaviour
         // Fade out, make everything dark
         fadeout.OnFadedOut.AddListener(() => {
             daylight.SetActive(false);
+
+            // Open cafeteria doors
+            foreach (Door door in doorsToOpenAfterIntro)
+            {
+                door.Open();
+            }
+
             fadeout.OnFadedOut.RemoveAllListeners();
         });
         fadeout.OnFadedIn.AddListener(() => {
@@ -113,26 +122,36 @@ public class GameController : MonoBehaviour
         StartCoroutine(PhaseCoroutine(index));
     }
 
+    // Called when eyes are closed, open doors and stuff
     void SetupForPhase(int index)
     {
         if (phases[index].focusTarget != null)
         {
             Camera.main.transform.rotation = Quaternion.LookRotation(phases[index].focusTarget.transform.position - player.transform.position);
         }
-        foreach (GameObject go in monsterDoors)
+
+        foreach (Door door in monsterDoors)
         {
-            go.SetActive(false);
+            door.Open();
+        }
+
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
         }
 
         // PHASE SPECIFIC SETUP GOES HERE by index
     }
 
+    // Called right after eyes open
     void CinematicForPhase(int index)
     {
         // Cinematic goes here, but for now we just enable player to shoot enemies
         SetupForShooting();
     }
 
+    // Things that should happen in the phase go here
     IEnumerator PhaseCoroutine(int index)
     {
         // Wait for the phase to finish
@@ -154,28 +173,39 @@ public class GameController : MonoBehaviour
             blink.DoBlink();
             blink.OnBlinkClose.AddListener(() => {
                 CleanupPhase(index);
+                SetupForWalking();
                 StartCoroutine(StartOutroLead());
                 blink.OnBlinkClose.RemoveAllListeners();
             });
         }
     }
 
+    // Happens after the phase ends, while eyes are closed
     void CleanupPhase(int index)
     {
         foreach (Spawner spawner in phases[index].spawners)
         {
-            spawner.enabled = true;
+            spawner.enabled = false;
         }
 
-        foreach (GameObject go in monsterDoors)
+        foreach (Door door in monsterDoors)
         {
-            go.SetActive(true);
+            door.Close();
         }
 
-        // TODO: Kill all enemies
+        Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            // TODO: Enemy deaths here should not play sounds
+            enemy.GetComponent<Health>().DealDamage(9999999999);
+        }
+
         // TODO: Play per-phase voice lines/phone ringing
 
-        phases[index].doorToOpenAtEnd.SetActive(false);
+        foreach (Door door in phases[index].doorToOpenAtEnd)
+        {
+            door.Open();
+        }
     }
 
     IEnumerator StartOutroLead()

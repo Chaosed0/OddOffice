@@ -10,10 +10,14 @@ public class Spawner : MonoBehaviour
     public float maxSpawnInterval = 10.0f;
 
     private GameObject lastSpawned = null;
+    private IEnumerator spawnCoroutine = null;
 
     void Start()
     {
-        StartCoroutine(SpawnCoroutine());
+        if (this.enabled)
+        {
+            StartSpawning();
+        }
     }
 
     IEnumerator SpawnCoroutine()
@@ -38,6 +42,32 @@ public class Spawner : MonoBehaviour
         if (mugShot = spawned.GetComponent<MugShot>())
         {
             mugShot.globPool = GameObject.Find("CoffeeProjectilePool").GetComponent<StackPool>();
+        }
+    }
+
+    void OnEnable()
+    {
+        StartSpawning();
+    }
+
+    void OnDisable()
+    {
+        StopSpawning();
+    }
+
+    void StartSpawning()
+    {
+        StopSpawning();
+        spawnCoroutine = SpawnCoroutine();
+        StartCoroutine(spawnCoroutine);
+    }
+
+    void StopSpawning()
+    {
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
         }
     }
 }
