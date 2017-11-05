@@ -43,9 +43,6 @@ public class Charger : MonoBehaviour
         //bool hit = Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer), ignoreLayer.value);
         bool hit = Physics.Raycast(transform.position,  towardsPlayer, out hitInfo, Mathf.Infinity, ignoreLayer.value);
 
-        if (hit)
-            Debug.Log(hitInfo.collider.name);
-
         if (hit && hitInfo.collider.gameObject.layer == 9 && !isCharging)
         {
             chargeDirection = towardsPlayer.normalized;
