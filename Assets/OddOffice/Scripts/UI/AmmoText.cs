@@ -17,7 +17,15 @@ public class AmmoText : MonoBehaviour
         }
 
         gun.OnAmmoChanged.AddListener(() => {
-            image.fillAmount = (float)gun.GetAmmo() / gun.maxAmmo;
+            if (!gun)
+            {
+                gun = FindObjectOfType<Gun>();
+            }
+
+            if (gun)
+            {
+                image.fillAmount = (float)gun.GetAmmo() / gun.maxAmmo;
+            }
         });
     }
 }
