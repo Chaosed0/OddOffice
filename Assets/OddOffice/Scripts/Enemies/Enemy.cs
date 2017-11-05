@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         health = GetComponent<Health>();
         target = GameObject.Find("Player") as GameObject;
         anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponentInChildren<NavMeshAgent>();
 
         health.OnDied.AddListener(() => Destroy(this.gameObject));
 

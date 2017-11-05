@@ -30,7 +30,7 @@ public class Charger : MonoBehaviour
         anim = GetComponent<Animator>();
 
         targeter = GetComponent<Targeter>();
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponentInChildren<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
         hurtbox.enabled = false;
