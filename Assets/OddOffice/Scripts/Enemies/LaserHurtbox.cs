@@ -35,6 +35,7 @@ public class LaserHurtbox : MonoBehaviour
                 if (!hurting)
                 {
                     hurting = true;
+                    GameObject.Find("ProjectorHitAudio").GetComponent<AudioSource>().Play();
                     OnStartHurting.Invoke();
                 }
             }
