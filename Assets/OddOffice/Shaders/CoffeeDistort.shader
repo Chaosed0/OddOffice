@@ -6,6 +6,7 @@ Shader "Custom/CoffeeDistort" {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_Modifier ("Modifier", Range(0,1)) = 1
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -27,6 +28,7 @@ Shader "Custom/CoffeeDistort" {
 		half _Glossiness;
 		half _Metallic;
 		fixed4 _Color;
+		float _Modifier;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -45,7 +47,9 @@ Shader "Custom/CoffeeDistort" {
 			float dotB = dot(dir, float3(.2, 1, 0)) * .9;
 			float dotC = dot(dir, float3(0, .1, 1)) * 1.1;
 
-			float3 offset = dir * sin(freqMultiplier * (time + dotA)) + dir * cos(freqMultiplier * (time + dotB)) + dir * sin(freqMultiplier * (time + dotC));
+			float3 offset = dir * sin(freqMultiplier * (time + dotA) * 1)
+			 + dir * cos(freqMultiplier * (time + dotB) * 1)
+			  + dir * sin(freqMultiplier * (time + dotC) * 1);
 			offset *= magnitude;
 
 			v.vertex.x += offset.x;

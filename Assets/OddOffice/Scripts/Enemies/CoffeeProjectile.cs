@@ -8,6 +8,7 @@ public class CoffeeProjectile : MonoBehaviour {
     public ParticleSystem splash;
     public StackPool stackPool;
     public float grav;
+    public float modifier = 1;
 
     public AudioSource splashAudioPrefab;
 
@@ -35,6 +36,7 @@ public class CoffeeProjectile : MonoBehaviour {
         bc.enabled = false;
         Invoke("EnableCollider", .5f);
         splash.transform.SetParent(transform);
+        GetComponent<MeshRenderer>().material.SetFloat("_Modifier", modifier);
     }
 
     void Update()
