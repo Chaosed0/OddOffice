@@ -60,6 +60,7 @@ public class ProjectorAim : MonoBehaviour {
         yield return new WaitForSeconds(beamDuration);
 
         laser.End();
+        hurtbox.DeactivateImpactFlame();
         hurtbox.enabled = false;
         if (targeter != null)
         {

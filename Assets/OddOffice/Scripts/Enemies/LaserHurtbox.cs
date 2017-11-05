@@ -6,23 +6,34 @@ public class LaserHurtbox : MonoBehaviour
 {
     public float damagePerSecond = 5.0f;
     public GameObject beamStartLoc;
+    public ParticleSystem impactFlame;
 
     bool hurting = false;
     public UnityEvent OnStartHurting = new UnityEvent();
     public UnityEvent OnStopHurting = new UnityEvent();
+
+    private void Awake ()
+    {
+        impactFlame.transform.parent.SetParent(null);
+    }
 
     void Update()
     {
         RaycastHit hitInfo;
         bool hit = Physics.BoxCast(beamStartLoc.transform.position, new Vector3(0.5f, 0.5f, 0.5f), beamStartLoc.transform.forward, out hitInfo, beamStartLoc.transform.rotation);
 
-        if (hit && hitInfo.collider && hitInfo.collider.gameObject.layer == 9)
+        if (hit && hitInfo.collider)
         {
-            hitInfo.collider.GetComponent<Health>().DealDamage(damagePerSecond * Time.deltaTime);
-            if (!hurting)
+            impactFlame.transform.parent.SetPositionAndRotation(hitInfo.point  - transform.forward * .5f + transform.up * .2f, Quaternion.identity);
+            impactFlame.Play();
+            if (hitInfo.collider.gameObject.layer == 9)
             {
-                hurting = true;
-                OnStartHurting.Invoke();
+                hitInfo.collider.GetComponent<Health>().DealDamage(damagePerSecond * Time.deltaTime);
+                if (!hurting)
+                {
+                    hurting = true;
+                    OnStartHurting.Invoke();
+                }
             }
         }
         else
@@ -33,5 +44,10 @@ public class LaserHurtbox : MonoBehaviour
                 OnStopHurting.Invoke();
             }
         }
+    }
+
+    public void DeactivateImpactFlame()
+    {
+        impactFlame.Stop();
     }
 }
