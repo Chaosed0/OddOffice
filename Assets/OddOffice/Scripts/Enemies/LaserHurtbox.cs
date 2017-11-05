@@ -24,8 +24,11 @@ public class LaserHurtbox : MonoBehaviour
 
         if (hit && hitInfo.collider)
         {
-            impactFlame.transform.parent.SetPositionAndRotation(hitInfo.point  - transform.forward * .5f + transform.up * .2f, Quaternion.identity);
-            impactFlame.Play();
+            if (hitInfo.collider.gameObject.layer != 8 && hitInfo.collider.gameObject.layer != 11)
+            {
+                impactFlame.transform.parent.SetPositionAndRotation(hitInfo.point - transform.forward * .35f + transform.up * .3f, Quaternion.identity);
+                impactFlame.Play();
+            }
             if (hitInfo.collider.gameObject.layer == 9)
             {
                 hitInfo.collider.GetComponent<Health>().DealDamage(damagePerSecond * Time.deltaTime);
@@ -47,6 +50,11 @@ public class LaserHurtbox : MonoBehaviour
     }
 
     public void DeactivateImpactFlame()
+    {
+        Invoke("StopFlame", .55f);
+    }
+
+    void StopFlame()
     {
         impactFlame.Stop();
     }

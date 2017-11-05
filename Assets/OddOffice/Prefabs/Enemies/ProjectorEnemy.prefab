@@ -458,7 +458,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.12, z: 12.999999}
+  m_Size: {x: 0.05, y: 0.05, z: 12.999999}
   m_Center: {x: 0.000013826492, y: -0.01751697, z: 4.443147}
 --- !u!114 &114034822047751418
 MonoBehaviour:
@@ -650,7 +650,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1186889114
+  randomSeed: -654092592
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3918,7 +3918,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2045535588
+  randomSeed: -173441114
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -16978,7 +16978,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1457396010
+  randomSeed: -2125929116
   InitialModule:
     serializedVersion: 3
     enabled: 1
