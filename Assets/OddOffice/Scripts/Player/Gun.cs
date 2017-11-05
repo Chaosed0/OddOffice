@@ -26,8 +26,11 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        SetReloading(true);
-        StartCoroutine(ReloadCoroutine());
+        if (this.enabled)
+        {
+            SetReloading(true);
+            StartCoroutine(ReloadCoroutine());
+        }
     }
 
     IEnumerator ReloadCoroutine()
@@ -39,7 +42,7 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        if (!_reloading)
+        if (!_reloading && this.enabled)
         {
             if (_ammo > 0)
             {

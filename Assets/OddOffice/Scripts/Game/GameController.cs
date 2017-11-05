@@ -23,7 +23,13 @@ public class GameController : MonoBehaviour
     public Blink blink;
     public Fadeout fadeout;
     public GameObject player;
+    public ArmAnimator arms;
+    public CanvasGroup HUD;
     private Movement playerMovement;
+    private Gun playerGun;
+
+    private Vector3 initialPlayerPosition;
+    private Quaternion initialPlayerRotation;
 
     public GameObject[] monsterDoors;
 
@@ -32,8 +38,13 @@ public class GameController : MonoBehaviour
         daylight.SetActive(true);
 
         playerMovement = player.GetComponent<Movement>();
-        playerMovement.setCanMove(false);
+        playerGun = player.GetComponent<Gun>();
+        SetupForCinematic();
+
         StartCoroutine(IntroCoroutine());
+
+        initialPlayerPosition = player.transform.position;
+        initialPlayerRotation = player.transform.rotation;
 
         foreach (Phase phase in phases)
         {
@@ -46,50 +57,52 @@ public class GameController : MonoBehaviour
     
     IEnumerator IntroCoroutine()
     {
+        // This is where the boss talks for some time
         yield return new WaitForSeconds(TimeForIntro);
 
+        // Fade out, make everything dark
         fadeout.OnFadedOut.AddListener(() => {
             daylight.SetActive(false);
             fadeout.OnFadedOut.RemoveAllListeners();
         });
         fadeout.OnFadedIn.AddListener(() => {
-            playerMovement.setCanMove(true);
+            // Allow the player to walk when the fade-in finishes
+            SetupForWalking();
             fadeout.OnFadedIn.RemoveAllListeners();
         });
         fadeout.DoFade();
 
-        PrepForPhase(0);
+        // TODO: Aaah, I need some coffee
+
+        AllowEntryToPhase(0);
     }
 
-    void PrepForPhase(int index)
+    void AllowEntryToPhase(int index)
     {
-        phases[index].colliderToStartPhase.OnPlayerEntered.AddListener(() => StartPhase(0));
+        phases[index].colliderToStartPhase.OnPlayerEntered.AddListener(() => {
+            EnterPhase(index);
+            phases[index].colliderToStartPhase.OnPlayerEntered.RemoveAllListeners();
+        });
     }
 
-    void StartPhase(int index)
+    void EnterPhase(int index)
     {
-        playerMovement.setCanMove(false);
+        // Freeze the player in place
+        SetupForCinematic();
+
+        // Do a blink
         blink.DoBlink();
+
         blink.OnBlinkClose.AddListener(() => {
-            if (phases[index].focusTarget != null)
-            {
-                Camera.main.transform.rotation = Quaternion.LookRotation(phases[index].focusTarget.transform.position - player.transform.position);
-            }
-            foreach (GameObject go in monsterDoors)
-            {
-                go.SetActive(false);
-            }
-
-            // PHASE SPECIFIC SETUP GOES HERE
-
+            // While the screen is black, setup the scene
+            SetupForPhase(index);
             blink.OnBlinkClose.RemoveAllListeners();
         });
 
         blink.OnBlinkOpen.AddListener(() => {
-            playerMovement.setCanMove(true);
+            // Once the blink finishes, play whatever cutscene for the scene
+            CinematicForPhase(index);
             blink.OnBlinkOpen.RemoveAllListeners();
-
-            // PHASE SPECIFIC SETUP GOES HERE
         });
 
         foreach (Spawner spawner in phases[index].spawners)
@@ -100,15 +113,39 @@ public class GameController : MonoBehaviour
         StartCoroutine(PhaseCoroutine(index));
     }
 
+    void SetupForPhase(int index)
+    {
+        if (phases[index].focusTarget != null)
+        {
+            Camera.main.transform.rotation = Quaternion.LookRotation(phases[index].focusTarget.transform.position - player.transform.position);
+        }
+        foreach (GameObject go in monsterDoors)
+        {
+            go.SetActive(false);
+        }
+
+        // PHASE SPECIFIC SETUP GOES HERE by index
+    }
+
+    void CinematicForPhase(int index)
+    {
+        // Cinematic goes here, but for now we just enable player to shoot enemies
+        SetupForShooting();
+    }
+
     IEnumerator PhaseCoroutine(int index)
     {
+        // Wait for the phase to finish
         yield return new WaitForSeconds(phases[index].phaseTime);
+
         if (index+1 < phases.Length)
         {
+            // If there's a next phase, finish this one and allow the player to walk around again
             blink.DoBlink();
             blink.OnBlinkClose.AddListener(() => {
                 CleanupPhase(index);
-                PrepForPhase(index+1);
+                SetupForWalking();
+                AllowEntryToPhase(index+1);
                 blink.OnBlinkClose.RemoveAllListeners();
             });
         }
@@ -135,6 +172,9 @@ public class GameController : MonoBehaviour
             go.SetActive(true);
         }
 
+        // TODO: Kill all enemies
+        // TODO: Play per-phase voice lines/phone ringing
+
         phases[index].doorToOpenAtEnd.SetActive(false);
     }
 
@@ -156,6 +196,9 @@ public class GameController : MonoBehaviour
     void PrepOutro()
     {
         daylight.SetActive(true);
+        player.transform.position = initialPlayerPosition;
+        player.transform.rotation = initialPlayerRotation;
+        SetupForCinematic();
     }
 
     IEnumerator PlayOutro()
@@ -163,5 +206,29 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(TimeForOutro);
 
         Debug.Log("IT'S OVER");
+    }
+
+    void SetupForShooting()
+    {
+        playerMovement.setCanMove(true);
+        playerGun.enabled = true;
+        StartCoroutine(arms.ShowArms(0.5f));
+        HUD.alpha = 1.0f;
+    }
+
+    void SetupForWalking()
+    {
+        playerMovement.setCanMove(true);
+        playerGun.enabled = true;
+        StartCoroutine(arms.HideArms(0.5f));
+        HUD.alpha = 0.0f;
+    }
+
+    void SetupForCinematic()
+    {
+        playerMovement.setCanMove(false);
+        playerGun.enabled = false;
+        StartCoroutine(arms.HideArms(0.5f));
+        HUD.alpha = 0.0f;
     }
 }
