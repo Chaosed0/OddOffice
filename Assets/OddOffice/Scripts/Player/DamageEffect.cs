@@ -13,7 +13,7 @@ public class DamageEffect : MonoBehaviour
     public float vignetteSpeed;
 
     private VignetteModel.Settings vignette;
-    private int vignetteDirection = 1;
+    private int vignetteDirection = -1;
 
     void Awake ()
     {
