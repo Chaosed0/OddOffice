@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour
     public ColliderEventer exitCollider;
 
     public AudioSource voiceClipSource;
-    public AudioSource ringSource;
     public AudioSource musicSource;
 
     public AudioClip introTalk;
@@ -46,6 +45,7 @@ public class GameController : MonoBehaviour
     public AudioClip preOutroTalk;
     public AudioClip outroTalk;
 
+    public Phone phone;
     private Movement playerMovement;
     private Gun playerGun;
 
@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
             // Allow the player to walk when the fade-in finishes
             SetupForWalking();
             //fadeout.OnFadedIn.RemoveAllListeners();
-            PlayVoiceLine(phases[0].phaseBeginTalk);
+            //PlayVoiceLine(phases[0].phaseBeginTalk);
         //});
         //fadeout.DoFade();
 
@@ -207,7 +207,7 @@ public class GameController : MonoBehaviour
 
         if (index+1 < phases.Length)
         {
-            ringSource.Play();
+            phone.StartRinging();
 
             // If there's a next phase, finish this one and allow the player to walk around again
             blink.DoBlink();
@@ -241,7 +241,7 @@ public class GameController : MonoBehaviour
         playerDeskCollider.OnPlayerEntered.AddListener(() => {
             AllowEntryToPhase(index);
             PlayVoiceLine(phases[index].prePhaseTalk);
-            ringSource.Stop();
+            phone.StopRinging();
             playerDeskCollider.OnPlayerEntered.RemoveAllListeners();
         });
     }
