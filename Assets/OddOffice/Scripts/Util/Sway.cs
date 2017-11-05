@@ -19,6 +19,7 @@ public class Sway : MonoBehaviour {
         mat.SetFloat("_ObjHeight", height);
         mat.SetFloat("_ObjWidth", bc.size.x);
         mat.SetFloat("_MidPoint", bc.center.y);
+        mat.SetFloat("_RandomOffset", Random.Range(0, Mathf.PI / 6));
     }
 
     void Update()
