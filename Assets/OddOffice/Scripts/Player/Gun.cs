@@ -56,6 +56,7 @@ public class Gun : MonoBehaviour
             {
                 Instantiate(bulletPrefab, muzzlePoint.transform.position, muzzlePoint.transform.rotation, null);
                 bulletAudioSource.clip = shootClip;
+                bulletAudioSource.loop = false;
                 bulletAudioSource.Play();
                 SetAmmo(_ammo -1);
                 OnFireSuccess.Invoke();
@@ -63,6 +64,7 @@ public class Gun : MonoBehaviour
             else
             {
                 bulletAudioSource.clip = shootFailClip;
+                bulletAudioSource.loop = false;
                 bulletAudioSource.Play();
                 OnFireFail.Invoke();
             }
