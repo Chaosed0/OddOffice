@@ -18,10 +18,14 @@ public class Expires : MonoBehaviour
         if (pool)
         {
             pool.Push(gameObject);
+            if (gameObject.GetComponent<CoffeeProjectile>())
+            {
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

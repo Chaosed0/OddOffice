@@ -6,6 +6,7 @@ public class MugShot : MonoBehaviour {
     public GameObject target;
     public StackPool globPool;
     public float maxMissAmount;
+    public GameObject launchStartPoint;
 
     private float adjustedHeight;
     private float trajectoryDuration;
@@ -24,8 +25,10 @@ public class MugShot : MonoBehaviour {
     IEnumerator Lob()
     {
         GameObject glob = globPool.Pop();
+        glob.transform.position = launchStartPoint.transform.position;
+        glob.GetComponent<BoxCollider>().enabled = true;
+        glob.GetComponent<CoffeeProjectile>().stackPool = globPool;
 
-        glob.transform.position = transform.position;
         glob.GetComponent<Rigidbody>().velocity = CalculateLaunchVelocity();
         glob.GetComponent<Expires>().pool = globPool;
 
@@ -43,7 +46,7 @@ public class MugShot : MonoBehaviour {
         adjustedHeight = Mathf.Max(0, transformedPoint.y) + height;
 
         float displacementUp = transformedPoint.y;
-        Vector3 toTarget = targetPosition - transform.position;
+        Vector3 toTarget = targetPosition - launchStartPoint.transform.position;
         toTarget.y = 0;
         float displacementForward = toTarget.magnitude;
 
