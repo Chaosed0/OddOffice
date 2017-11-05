@@ -21,6 +21,10 @@ public class DamageEffect : MonoBehaviour
 
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         playerHealth.OnHealthChanged.AddListener(() => DamagePlayer());
+
+        vignette = profile.vignette.settings;
+        vignette.intensity = 0;
+        profile.vignette.settings = vignette;
     }
 
     void DamagePlayer()
