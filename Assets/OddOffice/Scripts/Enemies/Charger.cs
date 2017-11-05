@@ -19,10 +19,12 @@ public class Charger : MonoBehaviour
     private Vector3 chargeDirection = Vector3.zero;
     private float chargeDurationTimer = 0.0f;
     public LayerMask ignoreLayer;
+    private Animator anim;
 
 	void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
 
         targeter = GetComponent<Targeter>();
         agent = GetComponent<NavMeshAgent>();
@@ -56,12 +58,18 @@ public class Charger : MonoBehaviour
 
     void StartCharging()
     {
+        anim.SetTrigger("ChargePrepare");
+    }
+
+    public void DoCharge()
+    {
         isCharging = true;
         hurtbox.enabled = true;
         targeter.enabled = false;
         agent.enabled = false;
         rb.isKinematic = false;
         chargeDurationTimer = 0.0f;
+        anim.SetTrigger("Charge");
     }
 
     void FixedUpdate()
@@ -91,15 +99,24 @@ public class Charger : MonoBehaviour
         isCharging = false;
         hurtbox.enabled = false;
         rb.velocity = Vector3.zero;
-        StartCoroutine(RecoveryCoroutine());
+        PrepareRecovery();
     }
 
-    IEnumerator RecoveryCoroutine()
+    void PrepareRecovery()
     {
-        yield return new WaitForSeconds(chargeRecoveryTime);
-        targeter.enabled = true;
-        agent.enabled = true;
+        anim.SetTrigger("RecoverPrepare");
         rb.isKinematic = true;
+    }
+
+    void DoRecoveryAnimation()
+    {
+        anim.SetTrigger("Recover");
+    }
+
+    void ConcludeRecovery()
+    {
         StartCoroutine(CheckCanChargeCoroutine());
+        agent.enabled = true;
+        targeter.enabled = true;
     }
 }
