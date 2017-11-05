@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.AI;
 
 public class ProjectorAim : MonoBehaviour {
@@ -9,12 +8,15 @@ public class ProjectorAim : MonoBehaviour {
     public float turnSpeed;
     public float beamCharge;
     public float beamDuration;
+    public float chaseStopDistance;
     public LaserHurtbox hurtbox;
+    public GameObject beamStartLoc;
 
     private ProjectorLaser laser;
     private Targeter targeter;
     private NavMeshAgent agent;
     private Rigidbody rb;
+    private GameObject player;
 
     void Awake ()
     {
@@ -22,6 +24,7 @@ public class ProjectorAim : MonoBehaviour {
         targeter = GetComponent<Targeter>();
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player") as GameObject;
 
         hurtbox.enabled = false;
 
@@ -34,6 +37,17 @@ public class ProjectorAim : MonoBehaviour {
     void Start ()
     {
         StartCoroutine(Aim());
+    }
+
+    void Update ()
+    {
+        RaycastHit hitInfo;
+        bool hit = Physics.BoxCast(beamStartLoc.transform.position, new Vector3(0.5f, 0.5f, 0.5f), player.transform.position - beamStartLoc.transform.position, 
+            out hitInfo, beamStartLoc.transform.rotation, chaseStopDistance);
+        if (hit)
+        {
+            targeter.SetNavigationActive(hitInfo.collider.gameObject.layer != 9);
+        }
     }
 
     IEnumerator Aim()

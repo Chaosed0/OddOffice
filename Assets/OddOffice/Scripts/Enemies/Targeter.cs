@@ -27,4 +27,9 @@ public class Targeter : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * lookRotationSpeed);
         }
     }
+
+    public void SetNavigationActive(bool navActive)
+    {
+        thisAgent.updatePosition = navActive;
+    }
 }
