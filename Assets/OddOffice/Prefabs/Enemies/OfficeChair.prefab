@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54169410025121326}
   - component: {fileID: 114049085978763522}
   - component: {fileID: 114301418477258772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: OfficeChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 33363258034026980}
   - component: {fileID: 65261309732094516}
   - component: {fileID: 23599049842947792}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 33816654787733828}
   - component: {fileID: 135148135554192188}
   - component: {fileID: 23892438532148948}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 33786004370064476}
   - component: {fileID: 136831216404860122}
   - component: {fileID: 23345887292268050}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 33432435828110760}
   - component: {fileID: 135969322724841770}
   - component: {fileID: 23746450082434186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 33717746424506870}
   - component: {fileID: 136436821013792832}
   - component: {fileID: 23631682854237366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 33243221754591822}
   - component: {fileID: 136359907101129940}
   - component: {fileID: 23993146492969828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 33508467735498332}
   - component: {fileID: 136098190790554236}
   - component: {fileID: 23079167586105462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 33835673296542270}
   - component: {fileID: 65079616566850846}
   - component: {fileID: 23441696490220042}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 4563576936837240}
   - component: {fileID: 65696549634913954}
   - component: {fileID: 114987957295483088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 33419741532354382}
   - component: {fileID: 135821704201478696}
   - component: {fileID: 23680906745162366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 33852645677046386}
   - component: {fileID: 135903111523530944}
   - component: {fileID: 23541729412832388}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4929928415057526}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 33483560896845794}
   - component: {fileID: 135103599000162774}
   - component: {fileID: 23349896260506304}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 33273674742464650}
   - component: {fileID: 135003196098977234}
   - component: {fileID: 23496857974886938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086555861159482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.485412, y: 0.008257988, z: -9.367019}
+  m_LocalPosition: {x: -10.068813, y: 0.10825781, z: -7.8102283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4929928415057526}
@@ -1023,6 +1023,9 @@ MonoBehaviour:
   maxChargeDuration: 4
   chargeRecoveryTime: 2
   hurtbox: {fileID: 114987957295483088}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 4294965247
 --- !u!114 &114301418477258772
 MonoBehaviour:
   m_ObjectHideFlags: 1

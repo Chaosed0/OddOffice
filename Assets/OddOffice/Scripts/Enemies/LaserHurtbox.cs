@@ -16,7 +16,6 @@ public class LaserHurtbox : MonoBehaviour
         RaycastHit hitInfo;
         bool hit = Physics.BoxCast(beamStartLoc.transform.position, new Vector3(0.5f, 0.5f, 0.5f), beamStartLoc.transform.forward, out hitInfo, beamStartLoc.transform.rotation);
 
-        Debug.Log(hitInfo.collider.name);
         if (hit && hitInfo.collider && hitInfo.collider.gameObject.layer == 9)
         {
             hitInfo.collider.GetComponent<Health>().DealDamage(damagePerSecond * Time.deltaTime);

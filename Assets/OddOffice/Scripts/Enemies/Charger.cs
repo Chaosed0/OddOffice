@@ -18,7 +18,7 @@ public class Charger : MonoBehaviour
     private bool isCharging = false;
     private Vector3 chargeDirection = Vector3.zero;
     private float chargeDurationTimer = 0.0f;
-    private LayerMask chargeLayerMask;
+    public LayerMask ignoreLayer;
 
 	void Awake()
     {
@@ -27,7 +27,6 @@ public class Charger : MonoBehaviour
         targeter = GetComponent<Targeter>();
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
-        chargeLayerMask = ~LayerMask.NameToLayer("ChargeIgnore");
 
         hurtbox.enabled = false;
 
@@ -41,7 +40,11 @@ public class Charger : MonoBehaviour
         towardsPlayer.y = 0.0f;
 
         RaycastHit hitInfo;
-        bool hit = Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer));
+        //bool hit = Physics.BoxCast(transform.position, new Vector3(0.5f, 0.5f, 0.5f), towardsPlayer, out hitInfo, Quaternion.LookRotation(towardsPlayer), ignoreLayer.value);
+        bool hit = Physics.Raycast(transform.position,  towardsPlayer, out hitInfo, Mathf.Infinity, ignoreLayer.value);
+
+        if (hit)
+            Debug.Log(hitInfo.collider.name);
 
         if (hit && hitInfo.collider.gameObject.layer == 9 && !isCharging)
         {
