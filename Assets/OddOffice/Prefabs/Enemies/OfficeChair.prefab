@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54169410025121326}
   - component: {fileID: 114049085978763522}
   - component: {fileID: 114301418477258772}
+  - component: {fileID: 114816870697356788}
   m_Layer: 11
   m_Name: OfficeChair
   m_TagString: Untagged
@@ -1048,6 +1049,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &114816870697356788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086555861159482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114974867994581446
 MonoBehaviour:
   m_ObjectHideFlags: 1

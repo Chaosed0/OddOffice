@@ -414,8 +414,8 @@ MonoBehaviour:
   target: {fileID: 0}
   aimDuration: 4
   turnSpeed: 90
-  beamCharge: 1
-  beamDuration: 3
+  beamCharge: 1.5
+  beamDuration: 2.5
   hurtbox: {fileID: 114400989682012830}
 --- !u!114 &114260238926371596
 MonoBehaviour:

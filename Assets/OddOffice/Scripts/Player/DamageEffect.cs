@@ -8,6 +8,7 @@ public class DamageEffect : MonoBehaviour
 {
     PostProcessingProfile profile;
 
+    public Health playerHealth;
     public float maxIntensity;
     public float vignetteSpeed;
 
@@ -25,6 +26,8 @@ public class DamageEffect : MonoBehaviour
 
         profile = Instantiate(behaviour.profile);
         behaviour.profile = profile;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        playerHealth.OnHealthChanged.AddListener(() => DamagePlayer());
     }
 
     void Update()
@@ -50,7 +53,8 @@ public class DamageEffect : MonoBehaviour
         while (true)
         {
             vignette.intensity = Mathf.Clamp(vignette.intensity + vignetteDirection * vignetteSpeed * Time.deltaTime, 0, maxIntensity);
-            if (vignette.intensity == maxIntensity)
+            Debug.Log(vignette.intensity);
+            if (vignette.intensity >= maxIntensity)
             {
                 vignetteDirection = -1;
             }
