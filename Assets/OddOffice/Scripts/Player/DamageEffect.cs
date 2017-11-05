@@ -12,6 +12,7 @@ public class DamageEffect : MonoBehaviour
     public float maxIntensity;
     public float vignetteSpeed;
 
+    private VignetteModel.Settings vignette;
     private int vignetteDirection = 1;
 
     void Awake ()
@@ -28,43 +29,25 @@ public class DamageEffect : MonoBehaviour
         behaviour.profile = profile;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         playerHealth.OnHealthChanged.AddListener(() => DamagePlayer());
+
+        vignette = profile.vignette.settings;
+    }
+
+    void DamagePlayer()
+    {
+        vignetteDirection = 1;
     }
 
     void Update()
     {
-        // Test
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    DamagePlayer();
-        //}
-    }
+        if (vignetteDirection == -1 && vignette.intensity <= 0) return;
 
-    public void DamagePlayer()
-    {
-        vignetteDirection = 1;
-        StopCoroutine(AnimateBlood());
-        StartCoroutine(AnimateBlood());
-    }
-
-    IEnumerator AnimateBlood()
-    {
-        var vignette = profile.vignette.settings;
-
-        while (true)
+        vignette.intensity = Mathf.Clamp(vignette.intensity + vignetteDirection * vignetteSpeed * Time.deltaTime, 0, maxIntensity);
+        if (vignette.intensity >= maxIntensity)
         {
-            vignette.intensity = Mathf.Clamp(vignette.intensity + vignetteDirection * vignetteSpeed * Time.deltaTime, 0, maxIntensity);
-            Debug.Log(vignette.intensity);
-            if (vignette.intensity >= maxIntensity)
-            {
-                vignetteDirection = -1;
-            }
-            else if (vignette.intensity == 0 && vignetteDirection == -1)
-            {
-                break;
-            }
-
-            profile.vignette.settings = vignette;
-            yield return null;
+            vignetteDirection = -1;
         }
+
+        profile.vignette.settings = vignette;
     }
 }
