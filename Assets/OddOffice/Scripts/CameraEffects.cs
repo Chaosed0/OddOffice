@@ -17,7 +17,7 @@ public class CameraEffects : MonoBehaviour
     
     void Update()
     {
-        // for testing
+        //for testing
         //if (Input.GetMouseButtonDown(0))
         //{
         //    EventBus.PublishEvent(new ActivateTrip());
