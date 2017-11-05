@@ -17,8 +17,8 @@ public class LightsManager : MonoBehaviour {
     public GameObject mainCamera;
     private PostProcessingProfile profile;
 
-    // public float testDuration;
-    // private float previousTestValue;
+    public float testDuration;
+    private float previousTestValue;
 
     void Start () {
         profile = mainCamera.GetComponent<PostProcessingBehaviour>().profile;
@@ -27,7 +27,7 @@ public class LightsManager : MonoBehaviour {
         // SetTrippyLighting();
     }
 
-    /*
+    
     // For testing purposes only
     private void Update()
     {
@@ -44,7 +44,7 @@ public class LightsManager : MonoBehaviour {
         }
         previousTestValue = testValue;
     }
-    */
+    
 
     [SubscribeGlobal]
     public void HandleTrip(ActivateTrip e)
