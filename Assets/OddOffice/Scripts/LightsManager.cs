@@ -17,8 +17,8 @@ public class LightsManager : MonoBehaviour {
     public GameObject mainCamera;
     private PostProcessingProfile profile;
 
-    // public float testDuration;
-    // private float previousTestValue;
+    public float testDuration;
+    private float previousTestValue;
 
     void Start () {
         profile = mainCamera.GetComponent<PostProcessingBehaviour>().profile;
@@ -58,7 +58,7 @@ public class LightsManager : MonoBehaviour {
         SetNormalLighting();
     }
 
-    private void SetNormalLighting()
+    public void SetNormalLighting()
     {
         profile.bloom.enabled = false;
 
@@ -70,7 +70,7 @@ public class LightsManager : MonoBehaviour {
         RenderSettings.ambientIntensity = 1.75f;
     }
 
-    private void SetTrippyLighting()
+    public void SetTrippyLighting()
     {
         RenderSettings.ambientIntensity = 1.00f;
 
