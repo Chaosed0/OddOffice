@@ -7,6 +7,7 @@ public class ArmAnimator : MonoBehaviour
     public Gun gun;
     public Animator rightHandAnimator;
     public Animator leftHandAnimator;
+    public Animator staplerAnimator;
 
     void Start()
     {
@@ -18,16 +19,20 @@ public class ArmAnimator : MonoBehaviour
     IEnumerator StartAttack()
     {
         rightHandAnimator.SetBool("isAttacking", true);
+        staplerAnimator.SetBool("isAttacking", true);
         yield return new WaitForEndOfFrame();
         rightHandAnimator.SetBool("isAttacking", false);
+        staplerAnimator.SetBool("isAttacking", false);
     }
 
     IEnumerator StartReloading()
     {
         rightHandAnimator.SetBool("isReloading", true);
         leftHandAnimator.SetBool("isReloading", true);
+        staplerAnimator.SetBool("isReloading", true);
         yield return new WaitForEndOfFrame();
         rightHandAnimator.SetBool("isReloading", false);
         leftHandAnimator.SetBool("isReloading", false);
+        staplerAnimator.SetBool("isReloading", false);
     }
 }
