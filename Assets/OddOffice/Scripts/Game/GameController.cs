@@ -139,6 +139,7 @@ public class GameController : MonoBehaviour
 
         foreach (Spawner spawner in phases[index].spawners)
         {
+            Debug.Log(spawner);
             spawner.enabled = true;
         }
 

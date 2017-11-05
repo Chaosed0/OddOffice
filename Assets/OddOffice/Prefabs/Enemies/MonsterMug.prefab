@@ -576,6 +576,9 @@ MonoBehaviour:
   attackDistance: 0
   damage: 5
   melee: 0
+  BINDERONLY_audioSource: {fileID: 0}
+  BINDERONLY_moveClip: {fileID: 0}
+  BINDERONLY_attackClip: {fileID: 0}
 --- !u!114 &114623886230481052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d210146dcc9124a489039acb37374116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 10
   OnDied:
     m_PersistentCalls:
       m_Calls: []
