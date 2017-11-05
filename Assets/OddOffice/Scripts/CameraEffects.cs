@@ -30,4 +30,11 @@ public class CameraEffects : MonoBehaviour
         profile.chromaticAberration.enabled = true;
         profile.motionBlur.enabled = true;
     }
+
+    [SubscribeGlobal]
+    public void DeactivateTrip(DeactivateTrip e)
+    {
+        profile.chromaticAberration.enabled = false;
+        profile.motionBlur.enabled = false;
+    }
 }

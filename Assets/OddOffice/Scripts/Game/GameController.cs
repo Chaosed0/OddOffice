@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour
     public AudioClip preOutroTalk;
     public AudioClip outroTalk;
 
+    public CameraEffects cameraEffects;
+    public Sway sway;
+
     private Movement playerMovement;
     private Gun playerGun;
 
@@ -177,7 +180,10 @@ public class GameController : MonoBehaviour
 
         lightsManager.SetTrippyLighting();
 
-        // PHASE SPECIFIC SETUP GOES HERE by index
+        if (index == 2)
+        {
+            EventBus.PublishEvent(new ActivateTrip());
+        }
     }
 
     // Called right after eyes open
@@ -267,6 +273,11 @@ public class GameController : MonoBehaviour
         }
 
         lightsManager.SetNormalLighting();
+
+        if (index == 2)
+        {
+            EventBus.PublishEvent(new DeactivateTrip());
+        }
     }
 
     void StartOutroLead()

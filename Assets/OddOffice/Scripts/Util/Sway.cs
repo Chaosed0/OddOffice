@@ -33,6 +33,12 @@ public class Sway : MonoBehaviour {
     {
         modifier = 1;
     }
+
+    [SubscribeGlobal]
+    public void StopTrip(DeactivateTrip e)
+    {
+        modifier = 0;
+    }
 }
 
 // set modifier to 1 to activate, 0 to deactivate.

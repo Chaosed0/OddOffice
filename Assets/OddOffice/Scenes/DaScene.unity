@@ -584,7 +584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &33633013
 MonoBehaviour:
@@ -2962,7 +2962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &282707679
 MonoBehaviour:
@@ -5558,7 +5558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &524078329
 MonoBehaviour:
@@ -5822,7 +5822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &552899387
 MonoBehaviour:
@@ -6617,6 +6617,51 @@ Transform:
   m_PrefabParentObject: {fileID: 4101609957638092, guid: 4c605d3379cb597438943f80d7678bbc,
     type: 2}
   m_PrefabInternal: {fileID: 639443994}
+--- !u!1 &650443806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 650443808}
+  - component: {fileID: 650443807}
+  m_Layer: 0
+  m_Name: ChairSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &650443807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650443806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6723c4564b3db9749bc5970c58d34ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1505621436119430, guid: d9082cb11ea4c344682e2f8546c795d5,
+    type: 2}
+  onlySpawnWhenDead: 0
+  minSpawnInterval: 20
+  maxSpawnInterval: 30
+--- !u!4 &650443808
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650443806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.46, y: 51.785, z: -25.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753531076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &655538815
 Prefab:
   m_ObjectHideFlags: 0
@@ -7271,6 +7316,8 @@ Transform:
   m_LocalPosition: {x: 1.2010927, y: -50.26648, z: 31.727173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1933969842}
+  - {fileID: 650443808}
   - {fileID: 781406466}
   - {fileID: 282707678}
   - {fileID: 1551466141}
@@ -7599,7 +7646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &781406467
 MonoBehaviour:
@@ -9239,6 +9286,7 @@ GameObject:
   - component: {fileID: 972661999}
   - component: {fileID: 972662000}
   - component: {fileID: 972662001}
+  - component: {fileID: 972662002}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -9272,7 +9320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeForIntro: 0
   phases:
-  - phaseTime: 45
+  - phaseTime: 5
     colliderToStartPhase: {fileID: 585609477}
     spawners:
     - {fileID: 620642243}
@@ -9294,7 +9342,7 @@ MonoBehaviour:
     phaseBeginTalk: {fileID: 8300000, guid: b1e94b4838462614ea17c666e7d32cb7, type: 3}
     music: {fileID: 8300000, guid: 9b980985353a6ed4b91304b2840dc7ec, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 60
+  - phaseTime: 5
     colliderToStartPhase: {fileID: 2028439951}
     spawners:
     - {fileID: 781406467}
@@ -9305,6 +9353,8 @@ MonoBehaviour:
     - {fileID: 2096107573}
     - {fileID: 524078329}
     - {fileID: 33633013}
+    - {fileID: 1933969841}
+    - {fileID: 650443807}
     doorToOpenAtEnd:
     - {fileID: 1364081634}
     thingsToActivate:
@@ -9359,6 +9409,8 @@ MonoBehaviour:
   introTalk: {fileID: 8300000, guid: e85057b846996ef4bb4e6f69c2a02aff, type: 3}
   preOutroTalk: {fileID: 8300000, guid: 9556bd861ec71bc4980032e6976bc549, type: 3}
   outroTalk: {fileID: 8300000, guid: f1400a7dc4afba9498fe89ceeabd143f, type: 3}
+  cameraEffects: {fileID: 972662002}
+  sway: {fileID: 0}
   monsterDoors:
   - {fileID: 602565821}
   - {fileID: 1490036231}
@@ -9390,6 +9442,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   tempFadeout: {fileID: 1933852394}
+--- !u!114 &972662002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 972661998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162935936e1ce05468712761f0b2b839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &973876999
 Prefab:
   m_ObjectHideFlags: 0
@@ -14434,7 +14497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1551466142
 MonoBehaviour:
@@ -18873,6 +18936,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1933852392}
+--- !u!1 &1933969840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1933969842}
+  - component: {fileID: 1933969841}
+  m_Layer: 0
+  m_Name: ChairSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1933969841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933969840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6723c4564b3db9749bc5970c58d34ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1505621436119430, guid: d9082cb11ea4c344682e2f8546c795d5,
+    type: 2}
+  onlySpawnWhenDead: 0
+  minSpawnInterval: 20
+  maxSpawnInterval: 30
+--- !u!4 &1933969842
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1933969840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.919998, y: 51.785, z: -36.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 753531076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940464171
 GameObject:
   m_ObjectHideFlags: 0
@@ -19598,7 +19706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2012029942
 MonoBehaviour:
@@ -20321,7 +20429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 753531076}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096107573
 MonoBehaviour:
