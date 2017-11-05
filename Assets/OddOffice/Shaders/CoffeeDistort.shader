@@ -60,6 +60,7 @@ Shader "Custom/CoffeeDistort" {
 			// Metallic and smoothness come from slider variables
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
+			o.Emission = c.rgb;
 		}
 		ENDCG
 	}
