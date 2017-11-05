@@ -27,19 +27,13 @@ public class Sway : MonoBehaviour {
         mat.SetFloat("_Modifier", modifier);
     }
 
-    [Subscribe]
-    public void HandleSwayEvent(SwayEvent e)
+    [SubscribeGlobal]
+    public void HandleTrip(ActivateTrip e)
     {
-        modifier = e.modifier;
+        modifier = 1;
     }
 }
 
 // set modifier to 1 to activate, 0 to deactivate.
-public struct SwayEvent
-{
-    public int modifier;
-    public SwayEvent(int modifier)
-    {
-        this.modifier = modifier;
-    }
-}
+public struct ActivateTrip
+{}
