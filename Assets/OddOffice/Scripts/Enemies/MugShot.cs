@@ -7,6 +7,7 @@ public class MugShot : MonoBehaviour {
     public StackPool globPool;
     public float maxMissAmount;
     public GameObject launchStartPoint;
+    public float coffeeGravity = -.5f;
 
     private float adjustedHeight;
     private float trajectoryDuration;
@@ -26,8 +27,8 @@ public class MugShot : MonoBehaviour {
     {
         GameObject glob = globPool.Pop();
         glob.transform.position = launchStartPoint.transform.position;
-        glob.GetComponent<BoxCollider>().enabled = true;
         glob.GetComponent<CoffeeProjectile>().stackPool = globPool;
+        glob.GetComponent<CoffeeProjectile>().grav = coffeeGravity;
 
         glob.GetComponent<Rigidbody>().velocity = CalculateLaunchVelocity();
         glob.GetComponent<Expires>().pool = globPool;
@@ -40,7 +41,10 @@ public class MugShot : MonoBehaviour {
 
     Vector3 CalculateLaunchVelocity ()
     {
-        Vector3 targetPosition = target.transform.position + Random.insideUnitSphere * Random.Range(0, maxMissAmount);
+        Vector3 offset = Random.insideUnitSphere * Random.Range(0, maxMissAmount);
+        offset.y = 0;
+
+        Vector3 targetPosition = target.transform.position + offset;
 
         Vector3 transformedPoint = transform.InverseTransformPoint(targetPosition);
         adjustedHeight = Mathf.Max(0, transformedPoint.y) + height;
@@ -50,8 +54,8 @@ public class MugShot : MonoBehaviour {
         toTarget.y = 0;
         float displacementForward = toTarget.magnitude;
 
-        float velUp = Mathf.Sqrt(-2 * Physics.gravity.y * adjustedHeight);
-        float velForward = displacementForward / (Mathf.Sqrt(-2 * adjustedHeight / Physics.gravity.y) + Mathf.Sqrt(2 * (displacementUp - adjustedHeight) / Physics.gravity.y));
+        float velUp = Mathf.Sqrt(-2 * coffeeGravity * adjustedHeight);
+        float velForward = displacementForward / (Mathf.Sqrt(-2 * adjustedHeight / coffeeGravity) + Mathf.Sqrt(2 * (displacementUp - adjustedHeight) / coffeeGravity));
 
         float angle = Mathf.Atan2(toTarget.z, toTarget.x);
         return new Vector3(velForward * Mathf.Cos(angle), velUp, velForward * Mathf.Sin(angle));
