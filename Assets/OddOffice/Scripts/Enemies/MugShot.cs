@@ -11,6 +11,9 @@ public class MugShot : MonoBehaviour {
     public float attackDistance = 6.5f;
     public float rotationSpeed = 360;
 
+    public AudioSource audioSource;
+    public AudioClip shootClip;
+
     private float adjustedHeight;
     private float trajectoryDuration;
     private Animator anim;
@@ -42,6 +45,9 @@ public class MugShot : MonoBehaviour {
 
         glob.GetComponent<Rigidbody>().velocity = CalculateLaunchVelocity();
         glob.GetComponent<Expires>().pool = globPool;
+
+        audioSource.clip = shootClip;
+        audioSource.Play();
 
         EventBus.PublishEvent(new TestEvent());
     }

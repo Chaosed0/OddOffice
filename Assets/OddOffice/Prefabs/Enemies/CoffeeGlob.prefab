@@ -295,9 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b848b38739dd78449b4f44d8054c65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
   splash: {fileID: 198895597844773342}
   stackPool: {fileID: 0}
   grav: 0
+  splashAudioPrefab: {fileID: 82863857021655476, guid: aa293c749ba02ce47a1c4cd9c700e8ad,
+    type: 2}
 --- !u!114 &114299979670592586
 MonoBehaviour:
   m_ObjectHideFlags: 1

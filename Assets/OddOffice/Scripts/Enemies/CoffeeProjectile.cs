@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CoffeeProjectile : MonoBehaviour {
 
+    public float damage = 5;
     public ParticleSystem splash;
     public StackPool stackPool;
     public float grav;
+
+    public AudioSource splashAudioPrefab;
 
     private Rigidbody rb;
     private BoxCollider bc;
@@ -15,6 +18,13 @@ public class CoffeeProjectile : MonoBehaviour {
     {
         splash.Play();
         splash.transform.SetParent(null);
+
+        if (collision.collider.gameObject.layer == 9)
+        {
+            collision.collider.GetComponent<Health>().DealDamage(damage);
+            Instantiate(splashAudioPrefab, this.transform.position, Quaternion.identity);
+        }
+
         stackPool.Push(gameObject);
     }
 

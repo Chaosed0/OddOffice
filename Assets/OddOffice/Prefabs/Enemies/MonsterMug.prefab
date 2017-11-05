@@ -402,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1807937659341880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5730188, y: 0.298, z: 3.8508847}
+  m_LocalPosition: {x: -5.791502, y: 1.0584828, z: -2.7649279}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4128536977139382}
@@ -572,6 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDistance: 0
+  damage: 5
+  melee: 0
 --- !u!114 &114623886230481052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,6 +594,8 @@ MonoBehaviour:
   coffeeGravity: -2.5
   attackDistance: 9
   rotationSpeed: 360
+  audioSource: {fileID: 82442025459555272}
+  shootClip: {fileID: 8300000, guid: adeefd4462935d94f848465b4200174f, type: 3}
 --- !u!114 &114833274621208100
 MonoBehaviour:
   m_ObjectHideFlags: 1
