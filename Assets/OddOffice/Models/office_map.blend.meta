@@ -3,36 +3,143 @@ guid: e97ba227f7e9e32498443b9879fe533b
 timeCreated: 1509831587
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: Cube
     100002: Cube_001
     100004: Office
     100006: Office_001
     100008: //RootNode
+    100010: Bathroom_Cabnits
+    100012: Bathroom_Stalls
+    100014: CircleTable
+    100016: DoorFrame
+    100018: Faucet
+    100020: Faucet_001
+    100022: Faucet_002
+    100024: Faucet_003
+    100026: Faucet_004
+    100028: Fridge
+    100030: Kitchen_Table
+    100032: KitchenCabnets
+    100034: Meetingroom-table_2
+    100036: meetingRoom_Table
+    100038: Reception_Desk
     400000: Cube
     400002: Cube_001
     400004: Office
     400006: Office_001
     400008: //RootNode
+    400010: Bathroom_Cabnits
+    400012: Bathroom_Stalls
+    400014: CircleTable
+    400016: DoorFrame
+    400018: Faucet
+    400020: Faucet_001
+    400022: Faucet_002
+    400024: Faucet_003
+    400026: Faucet_004
+    400028: Fridge
+    400030: Kitchen_Table
+    400032: KitchenCabnets
+    400034: Meetingroom-table_2
+    400036: meetingRoom_Table
+    400038: Reception_Desk
     2300000: Cube
     2300002: Cube_001
     2300004: Office
     2300006: Office_001
+    2300008: Bathroom_Cabnits
+    2300010: Bathroom_Stalls
+    2300012: CircleTable
+    2300014: DoorFrame
+    2300016: Faucet
+    2300018: Faucet_001
+    2300020: Faucet_002
+    2300022: Faucet_003
+    2300024: Faucet_004
+    2300026: Fridge
+    2300028: Kitchen_Table
+    2300030: KitchenCabnets
+    2300032: Meetingroom-table_2
+    2300034: meetingRoom_Table
+    2300036: Reception_Desk
     3300000: Cube
     3300002: Cube_001
     3300004: Office
     3300006: Office_001
+    3300008: Bathroom_Cabnits
+    3300010: Bathroom_Stalls
+    3300012: CircleTable
+    3300014: DoorFrame
+    3300016: Faucet
+    3300018: Faucet_001
+    3300020: Faucet_002
+    3300022: Faucet_003
+    3300024: Faucet_004
+    3300026: Fridge
+    3300028: Kitchen_Table
+    3300030: KitchenCabnets
+    3300032: Meetingroom-table_2
+    3300034: meetingRoom_Table
+    3300036: Reception_Desk
     4300000: Office_001
     4300002: Cube
     4300004: Cube_001
     4300006: Office
+    4300008: DoorFrame
+    4300010: Faucet_004
+    4300012: Faucet_003
+    4300014: Faucet_002
+    4300016: Bathroom_Cabnits
+    4300018: Bathroom_Stalls
+    4300020: Fridge
+    4300022: KitchenCabnets
+    4300024: Faucet
+    4300026: Faucet_001
+    4300028: Reception_Desk
+    4300030: CircleTable
+    4300032: Kitchen_Table
+    4300034: Meetingroom-table_2
+    4300036: meetingRoom_Table
     7400000: Default Take
     9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brown
+    second: {fileID: 2100000, guid: cbd50165272b9ce47841c51e2ec654f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carpet
+    second: {fileID: 2100000, guid: dccb31133857986418a43df48343a177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 3476c8c5ad5585445a3b6a4221a18736, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Walls
+    second: {fileID: 2100000, guid: 923e61c0662d4d54c96b83176584ae9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 689050f11b530aa4a85688297f5f3298, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: b08e8340bfb2e3d4ab6c4e9ba20eaf1d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -45,6 +152,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
