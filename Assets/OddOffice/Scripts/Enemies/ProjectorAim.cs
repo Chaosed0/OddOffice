@@ -46,7 +46,7 @@ public class ProjectorAim : MonoBehaviour {
             out hitInfo, beamStartLoc.transform.rotation, chaseStopDistance);
         if (hit)
         {
-            targeter.SetNavigationActive(hitInfo.collider.gameObject.layer != 9);
+            targeter.SetNavigationActive(hitInfo.collider.gameObject.layer != 9 && hitInfo.collider.gameObject.layer != 8);
         }
     }
 
