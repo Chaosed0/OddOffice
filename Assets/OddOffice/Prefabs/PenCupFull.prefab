@@ -81,8 +81,6 @@ GameObject:
   - component: {fileID: 4511081231377884}
   - component: {fileID: 33950951367478994}
   - component: {fileID: 23860877615759182}
-  - component: {fileID: 65481672500460440}
-  - component: {fileID: 114748134820416340}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -100,8 +98,6 @@ GameObject:
   - component: {fileID: 4619347516561086}
   - component: {fileID: 33167826718876126}
   - component: {fileID: 23864441616078504}
-  - component: {fileID: 65993003882339730}
-  - component: {fileID: 114244733747817686}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -165,8 +161,6 @@ GameObject:
   - component: {fileID: 4424532588426554}
   - component: {fileID: 33431554690046508}
   - component: {fileID: 23270159350948472}
-  - component: {fileID: 65111825617240286}
-  - component: {fileID: 114862980295175976}
   m_Layer: 0
   m_Name: Pen
   m_TagString: Untagged
@@ -200,6 +194,7 @@ GameObject:
   - component: {fileID: 33858785906476504}
   - component: {fileID: 23055609074974018}
   - component: {fileID: 65599475972284912}
+  - component: {fileID: 114581658749766452}
   m_Layer: 0
   m_Name: Pen_Cup
   m_TagString: Untagged
@@ -325,7 +320,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1742063054660724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.349, y: 1.07, z: -0.43}
+  m_LocalPosition: {x: 0.24, y: 1.07, z: -0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4077204486098312}
@@ -557,3 +552,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.79153496, y: 1.1953279, z: 0.7915359}
   m_Center: {x: -0.000002875924, y: -0.000015258789, z: 0}
+--- !u!114 &114581658749766452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948573648758228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509478610d0347f4cbf38568c20710ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

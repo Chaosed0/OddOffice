@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 23737084448659586}
   - component: {fileID: 114268684021389896}
   - component: {fileID: 65249362259805524}
+  - component: {fileID: 114420393487611022}
   m_Layer: 0
   m_Name: Desktop_Hardcase
   m_TagString: Untagged
@@ -161,5 +162,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18d1d2ddfa2239445b010af54aeec8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114420393487611022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434628898615016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509478610d0347f4cbf38568c20710ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

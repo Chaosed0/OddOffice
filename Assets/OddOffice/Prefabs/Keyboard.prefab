@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 33186655838841400}
   - component: {fileID: 23546162059604336}
   - component: {fileID: 65440663193858200}
+  - component: {fileID: 114469079934447800}
   m_Layer: 0
   m_Name: Keyboard
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516709189583406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.191, y: 1.045, z: 0.44}
+  m_LocalPosition: {x: -0.28, y: 1.045, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4551213545919616}
@@ -167,3 +168,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.348632, y: 0.107022, z: 3.744246}
   m_Center: {x: 0.000002861023, y: 0.034386724, z: 0.0000076293945}
+--- !u!114 &114469079934447800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1486444057177144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509478610d0347f4cbf38568c20710ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
