@@ -10,12 +10,16 @@ public class Gun : MonoBehaviour
     public Transform muzzlePoint;
     public int maxAmmo = 30;
     public float reloadTime = 3.0f;
+    public AudioSource bulletAudioSource;
 
     public UnityEvent OnReloadStart = new UnityEvent();
     public UnityEvent OnReloadEnd = new UnityEvent();
     public UnityEvent OnFireSuccess = new UnityEvent();
     public UnityEvent OnFireFail = new UnityEvent();
     public UnityEvent OnAmmoChanged = new UnityEvent();
+
+    public AudioClip shootClip;
+    public AudioClip shootFailClip;
 
     private int _ammo = 0;
     private bool _reloading = false;
@@ -51,11 +55,15 @@ public class Gun : MonoBehaviour
             if (_ammo > 0)
             {
                 Instantiate(bulletPrefab, muzzlePoint.transform.position, muzzlePoint.transform.rotation, null);
+                bulletAudioSource.clip = shootClip;
+                bulletAudioSource.Play();
                 SetAmmo(_ammo -1);
                 OnFireSuccess.Invoke();
             }
             else
             {
+                bulletAudioSource.clip = shootFailClip;
+                bulletAudioSource.Play();
                 OnFireFail.Invoke();
             }
         }

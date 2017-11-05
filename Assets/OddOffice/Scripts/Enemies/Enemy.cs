@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     Animator anim;
     NavMeshAgent agent;
     Targeter targeter;
+
+    public AudioSource BINDERONLY_audioSource;
+    public AudioClip BINDERONLY_moveClip;
+    public AudioClip BINDERONLY_attackClip;
     
     private void Start()
     {
@@ -36,6 +40,12 @@ public class Enemy : MonoBehaviour
         if ((transform.position - target.transform.position).sqrMagnitude < attackDistance * attackDistance)
         {
             anim.SetBool("Attacking", true);
+            if (BINDERONLY_audioSource.clip != BINDERONLY_attackClip)
+            {
+                BINDERONLY_audioSource.Stop();
+                BINDERONLY_audioSource.clip = BINDERONLY_attackClip;
+                BINDERONLY_audioSource.Play();
+            }
 
             if (agent)
             {
@@ -44,6 +54,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            if (BINDERONLY_audioSource.clip != BINDERONLY_moveClip)
+            {
+                BINDERONLY_audioSource.Stop();
+                BINDERONLY_audioSource.clip = BINDERONLY_moveClip;
+                BINDERONLY_audioSource.Play();
+            }
             if (agent)
             {
                 agent.updatePosition = true;

@@ -12,6 +12,10 @@ public class ProjectorAim : MonoBehaviour {
     public LaserHurtbox hurtbox;
     public GameObject beamStartLoc;
 
+    public AudioSource audioSource;
+    public AudioClip chargeClip;
+    public AudioClip shootingClip;
+
     private ProjectorLaser laser;
     private Targeter targeter;
     private NavMeshAgent agent;
@@ -67,10 +71,14 @@ public class ProjectorAim : MonoBehaviour {
         {
             targeter.enabled = false;
             agent.enabled = false;
+            audioSource.clip = chargeClip;
+            audioSource.Play();
         }
         yield return new WaitForSeconds(beamCharge);
 
         hurtbox.enabled = true;
+        audioSource.clip = shootingClip;
+        audioSource.Play();
         yield return new WaitForSeconds(beamDuration);
 
         laser.End();

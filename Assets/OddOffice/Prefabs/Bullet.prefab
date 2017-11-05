@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  explosionAudioPrefab: {fileID: 82863857021655476, guid: c5f13d090a385064c944534d8cbdd5f9,
+    type: 2}
 --- !u!114 &114810586701425654
 MonoBehaviour:
   m_ObjectHideFlags: 1

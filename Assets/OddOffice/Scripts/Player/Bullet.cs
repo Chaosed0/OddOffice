@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     ParticleSystem explosion;
     Vector3 initialVelocity;
 
+    public AudioSource explosionAudioPrefab;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +29,7 @@ public class Bullet : MonoBehaviour
             explosion.transform.SetParent(null);
             explosion.transform.position = other.contacts[0].point + (transform.position - other.transform.position).normalized * .25f;
             explosion.Play();
+            Instantiate(explosionAudioPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, 2);
             Destroy(gameObject);
 
