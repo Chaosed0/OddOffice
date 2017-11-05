@@ -9,6 +9,8 @@ public struct Phase
     public ColliderEventer colliderToStartPhase;
     public Spawner[] spawners;
     public Door[] doorToOpenAtEnd;
+    public GameObject[] thingsToActivate;
+    public GameObject[] thingsToDeactivate;
     public AudioClip prePhaseTalk;
     public AudioClip prePhaseYawn;
     public AudioClip phaseBeginTalk;
@@ -158,6 +160,16 @@ public class GameController : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             Destroy(enemy.gameObject);
+        }
+
+        foreach (GameObject activateMe in phases[index].thingsToActivate)
+        {
+            activateMe.SetActive(true);
+        }
+
+        foreach (GameObject activateMe in phases[index].thingsToDeactivate)
+        {
+            activateMe.SetActive(false);
         }
 
         // PHASE SPECIFIC SETUP GOES HERE by index

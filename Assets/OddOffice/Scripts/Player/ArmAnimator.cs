@@ -55,18 +55,20 @@ public class ArmAnimator : MonoBehaviour
 
     public IEnumerator HideShowArms(bool hide, float time)
     {
+        Quaternion startRotation = transform.rotation;
         hideShowTimer = 0.0f;
+
         while (hideShowTimer < time)
         {
             hideShowTimer += Time.deltaTime;
             float lerp = hideShowTimer / time;
             if (hide)
             {
-                transform.localRotation = Quaternion.Lerp(normalRotation, hiddenRotation, lerp);
+                transform.localRotation = Quaternion.Lerp(startRotation, hiddenRotation, lerp);
             }
             else
             {
-                transform.localRotation = Quaternion.Lerp(hiddenRotation, normalRotation, lerp);
+                transform.localRotation = Quaternion.Lerp(startRotation, normalRotation, lerp);
             }
             yield return new WaitForEndOfFrame();
         }
