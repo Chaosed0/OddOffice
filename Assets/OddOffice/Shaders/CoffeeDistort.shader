@@ -47,9 +47,9 @@ Shader "Custom/CoffeeDistort" {
 			float dotB = dot(dir, float3(.2, 1, 0)) * .9;
 			float dotC = dot(dir, float3(0, .1, 1)) * 1.1;
 
-			float3 offset = dir * sin(freqMultiplier * (time + dotA) * 1)
-			 + dir * cos(freqMultiplier * (time + dotB) * 1)
-			  + dir * sin(freqMultiplier * (time + dotC) * 1);
+			float3 offset = dir * sin(freqMultiplier * (time + dotA) * _Modifier)
+			 + dir * cos(freqMultiplier * (time + dotB) * _Modifier)
+			  + dir * sin(freqMultiplier * (time + dotC) * _Modifier);
 			offset *= magnitude;
 
 			v.vertex.x += offset.x;
