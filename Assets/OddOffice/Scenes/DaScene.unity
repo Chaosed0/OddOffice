@@ -965,6 +965,11 @@ Prefab:
       propertyPath: Priority
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114803275593518748, guid: ab99c8c552a2c994bb80b45b5e44bb98,
+        type: 2}
+      propertyPath: reloadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 33daadf520164b4459a8b0fa57e5679e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
   m_IsPrefabParent: 0
@@ -9401,7 +9406,7 @@ MonoBehaviour:
     - {fileID: 917736393}
     prePhaseTalk: {fileID: 8300000, guid: c76775f54d2775f4e80c30104f9678d1, type: 3}
     prePhaseYawn: {fileID: 8300000, guid: b633977b03bf9b2478e54657d3b623a7, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: 11c408d964751e5429f019754e726f2d, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: 5248d3b3fe0db26499de6649d211a1f1, type: 3}
     music: {fileID: 8300000, guid: 9b980985353a6ed4b91304b2840dc7ec, type: 3}
     focusTarget: {fileID: 0}
   - phaseTime: 60
@@ -9425,7 +9430,7 @@ MonoBehaviour:
     - {fileID: 506970728}
     prePhaseTalk: {fileID: 8300000, guid: dfe9e5af2d4a5c34f94530756a3a1f5b, type: 3}
     prePhaseYawn: {fileID: 8300000, guid: 5c3ed0adefaacb44e961e5a0ff9ac0f7, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: b9325f60bf60a5749bc82862863054ed, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: 949ac8becbbb58a45b898c43dd6e549d, type: 3}
     music: {fileID: 8300000, guid: cdffd595f216d1d479ce2d34c34d132e, type: 3}
     focusTarget: {fileID: 0}
   - phaseTime: 90
@@ -9449,7 +9454,7 @@ MonoBehaviour:
     thingsToDeactivate: []
     prePhaseTalk: {fileID: 8300000, guid: 9802663a250ad954dbd1484a188d6496, type: 3}
     prePhaseYawn: {fileID: 8300000, guid: 6aa4904fc007eb543861c250ecca2a92, type: 3}
-    phaseBeginTalk: {fileID: 8300000, guid: 1fcb07d8fd258dc4f955c30da2b2888e, type: 3}
+    phaseBeginTalk: {fileID: 8300000, guid: c049a05f5e3cb97489701c225240883d, type: 3}
     music: {fileID: 8300000, guid: a9664df245764aa4a84970e1e4970b0d, type: 3}
     focusTarget: {fileID: 0}
   TimeForOutroLead: 5

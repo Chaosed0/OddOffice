@@ -194,7 +194,7 @@ public class GameController : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
 
-        //PlayVoiceLine(phases[index].phaseBeginTalk);
+        PlayVoiceLine(phases[index].phaseBeginTalk);
     }
 
     // Things that should happen in the phase go here

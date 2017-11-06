@@ -2721,11 +2721,11 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3078,6 +3078,7 @@ MonoBehaviour:
       PublicKeyToken=null
   shootClip: {fileID: 8300000, guid: cf9b659dc488caa40a3c8c7fa571b397, type: 3}
   shootFailClip: {fileID: 8300000, guid: cae38e4121e476746842fdd9639355c9, type: 3}
+  reloadClip: {fileID: 8300000, guid: 33daadf520164b4459a8b0fa57e5679e, type: 3}
 --- !u!114 &114897104118077128
 MonoBehaviour:
   m_ObjectHideFlags: 1

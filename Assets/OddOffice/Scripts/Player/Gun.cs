@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
 
     public AudioClip shootClip;
     public AudioClip shootFailClip;
+    public AudioClip reloadClip;
 
     private int _ammo = 0;
     private bool _reloading = false;
@@ -37,6 +38,9 @@ public class Gun : MonoBehaviour
         if (this.enabled)
         {
             SetReloading(true);
+            bulletAudioSource.clip = reloadClip;
+            bulletAudioSource.loop = false;
+            bulletAudioSource.Play();
             StartCoroutine(ReloadCoroutine());
         }
     }
