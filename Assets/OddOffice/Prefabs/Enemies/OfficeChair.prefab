@@ -1025,6 +1025,8 @@ MonoBehaviour:
   maxChargeDuration: 4
   chargeRecoveryTime: 2
   hurtbox: {fileID: 114987957295483088}
+  audioSource: {fileID: 0}
+  chargingClip: {fileID: 0}
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 4294965247
@@ -1039,7 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d210146dcc9124a489039acb37374116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
   OnDied:
     m_PersistentCalls:
       m_Calls: []
@@ -1074,6 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1512922659b84444b8426595a00ce82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDistance: 0
+  damage: 5
+  melee: 0
+  BINDERONLY_audioSource: {fileID: 0}
+  BINDERONLY_moveClip: {fileID: 0}
+  BINDERONLY_attackClip: {fileID: 0}
 --- !u!114 &114974867994581446
 MonoBehaviour:
   m_ObjectHideFlags: 1

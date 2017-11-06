@@ -9377,7 +9377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeForIntro: 10
   phases:
-  - phaseTime: 5
+  - phaseTime: 45
     colliderToStartPhase: {fileID: 585609477}
     spawners:
     - {fileID: 620642243}
@@ -9399,7 +9399,7 @@ MonoBehaviour:
     phaseBeginTalk: {fileID: 8300000, guid: 5248d3b3fe0db26499de6649d211a1f1, type: 3}
     music: {fileID: 8300000, guid: 9b980985353a6ed4b91304b2840dc7ec, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 5
+  - phaseTime: 60
     colliderToStartPhase: {fileID: 2028439951}
     spawners:
     - {fileID: 781406467}
@@ -9423,7 +9423,7 @@ MonoBehaviour:
     phaseBeginTalk: {fileID: 8300000, guid: 949ac8becbbb58a45b898c43dd6e549d, type: 3}
     music: {fileID: 8300000, guid: cdffd595f216d1d479ce2d34c34d132e, type: 3}
     focusTarget: {fileID: 0}
-  - phaseTime: 5
+  - phaseTime: 90
     colliderToStartPhase: {fileID: 1535009}
     spawners:
     - {fileID: 1098428172}
@@ -11074,7 +11074,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1182713230
 Prefab:
@@ -12987,6 +12987,11 @@ Prefab:
     - target: {fileID: 1781430948595320, guid: 0f809a363d968ee4ab68f08a87c326ca, type: 2}
       propertyPath: m_Name
       value: Scene2Projector
+      objectReference: {fileID: 0}
+    - target: {fileID: 114407460775611342, guid: 0f809a363d968ee4ab68f08a87c326ca,
+        type: 2}
+      propertyPath: maxHealth
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1781430948595320, guid: 0f809a363d968ee4ab68f08a87c326ca, type: 2}
       propertyPath: m_IsActive
