@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/OddOffice/Scenes/TitleScreen.unity
+    guid: 4264636108dfa4f48ac0aa1dd1c412ce
+  - enabled: 1
+    path: Assets/OddOffice/Scenes/DaScene.unity
+    guid: 3dde9e90414e9a548b1872718b22f338
