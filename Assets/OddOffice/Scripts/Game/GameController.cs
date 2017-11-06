@@ -57,6 +57,8 @@ public class GameController : MonoBehaviour
 
     public LightsManager lightsManager;
 
+    public CanvasGroup credits;
+
     void Start()
     {
         daylight.SetActive(true);
@@ -316,7 +318,7 @@ public class GameController : MonoBehaviour
         PlayVoiceLine(outroTalk);
         yield return new WaitForSeconds(TimeForOutro);
 
-        Debug.Log("IT'S OVER");
+        credits.alpha = 1.0f;
     }
 
     void SetupForShooting()
