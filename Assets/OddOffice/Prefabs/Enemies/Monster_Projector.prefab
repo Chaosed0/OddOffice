@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535706069053970}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Charge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4682702069033782}
   - component: {fileID: 198963512239154606}
   - component: {fileID: 199728493358879924}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: LaserParticleCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4672406667812208}
   - component: {fileID: 198843653961451792}
   - component: {fileID: 199873397075642660}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: ChargeEnergy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4965706635514658}
   - component: {fileID: 198921437192948368}
   - component: {fileID: 199393619370390434}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: LaserParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4304852593044792}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: BeamStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873925824675840}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4396539957464154}
   - component: {fileID: 198596079193791376}
   - component: {fileID: 199252141100177362}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: ChargeBallCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 4872513493285088}
   - component: {fileID: 198630231832357956}
   - component: {fileID: 199670187623143016}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: ChargeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 4936553925079436}
   - component: {fileID: 65828360729180090}
   - component: {fileID: 114758673281750210}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: BeamCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4085,7 +4085,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1379957787
+  randomSeed: -1090095450
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7353,7 +7353,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 798940185
+  randomSeed: -1466344734
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10621,7 +10621,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1885316621
+  randomSeed: 398381508
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13883,7 +13883,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -51979134
+  randomSeed: -74467443
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -17145,7 +17145,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 784388006
+  randomSeed: 453365622
   InitialModule:
     serializedVersion: 3
     enabled: 1
