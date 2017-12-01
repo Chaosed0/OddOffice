@@ -526,9 +526,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4181030207966970}
   - component: {fileID: 20051393547022448}
-  - component: {fileID: 124368617828922936}
-  - component: {fileID: 92496774796776388}
-  - component: {fileID: 81391043162531812}
   - component: {fileID: 114760021807266390}
   m_Layer: 9
   m_Name: LaserCam
@@ -2695,13 +2692,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898119916193206}
   m_Enabled: 1
---- !u!81 &81391043162531812
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1421368929572456}
-  m_Enabled: 1
 --- !u!82 &82383154032558072
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2948,13 +2938,6 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898119916193206}
-  m_Enabled: 1
---- !u!92 &92496774796776388
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1421368929572456}
   m_Enabled: 1
 --- !u!95 &95017597467249062
 Animator:
@@ -3210,13 +3193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509478610d0347f4cbf38568c20710ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!124 &124368617828922936
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1421368929572456}
-  m_Enabled: 1
 --- !u!124 &124969802503450104
 Behaviour:
   m_ObjectHideFlags: 1

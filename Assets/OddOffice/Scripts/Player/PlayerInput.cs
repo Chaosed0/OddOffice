@@ -19,6 +19,7 @@ public class PlayerInput : MonoBehaviour
         movement = GetComponent<Movement>();
         gun = GetComponent<Gun>();
 
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -38,6 +39,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (fire && !keepCursorUnlocked)
             {
+                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
@@ -69,6 +71,7 @@ public class PlayerInput : MonoBehaviour
 
         if (unlock)
         {
+            Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
 	}
@@ -76,6 +79,7 @@ public class PlayerInput : MonoBehaviour
     public void UnlockCursorPermanent()
     {
         keepCursorUnlocked = true;
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -966,12 +966,9 @@ Prefab:
     - target: {fileID: 114220984419026436, guid: ab99c8c552a2c994bb80b45b5e44bb98,
         type: 2}
       propertyPath: maxHealth
-      value: 1
+      value: 200
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 81391043162531812, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
-    - {fileID: 92496774796776388, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
-    - {fileID: 124368617828922936, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab99c8c552a2c994bb80b45b5e44bb98, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &82178947 stripped
