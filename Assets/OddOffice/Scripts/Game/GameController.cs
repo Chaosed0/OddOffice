@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     public Phone phone;
     private Movement playerMovement;
     private Gun playerGun;
+    private PlayerInput playerInput;
 
     private Vector3 initialPlayerPosition;
     private Quaternion initialPlayerRotation;
@@ -65,6 +66,7 @@ public class GameController : MonoBehaviour
 
         playerMovement = player.GetComponent<Movement>();
         playerGun = player.GetComponent<Gun>();
+        playerInput = player.GetComponent<PlayerInput>();
         SetupForCinematic();
 
         StartCoroutine(IntroCoroutine());
@@ -318,6 +320,9 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(TimeForOutro);
 
         credits.alpha = 1.0f;
+        credits.interactable = true;
+        credits.blocksRaycasts = true;
+        playerInput.UnlockCursorPermanent();
     }
 
     void SetupForShooting()

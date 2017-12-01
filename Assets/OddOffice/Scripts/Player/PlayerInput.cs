@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     private Gun gun;
 
     private float cameraRotation = 0;
+    private bool keepCursorUnlocked = true;
     
     void Start()
     {
@@ -35,7 +36,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Cursor.lockState != CursorLockMode.Locked)
         {
-            if (fire)
+            if (fire && !keepCursorUnlocked)
             {
                 Cursor.lockState = CursorLockMode.Locked;
             }
@@ -71,4 +72,10 @@ public class PlayerInput : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 	}
+
+    public void UnlockCursorPermanent()
+    {
+        keepCursorUnlocked = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
